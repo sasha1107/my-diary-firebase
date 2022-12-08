@@ -1,0 +1,56 @@
+.login_form {
+    max-width: 360px;
+    margin: 60px auto;
+    padding-bottom: 40px;
+    background-color: #C3C3C3;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E, inset 4px 4px 0px #B1B1B1;
+
+    backdrop-filter: blur(15px);
+}
+.login_form fieldset {
+    border: none;
+    padding: 0;
+}
+.login_form legend {
+    border-top: 2px solid #f0f0f0;
+    border-right: 2px solid gray;
+    margin-top: 0;
+    font-size: 1.2em;
+    padding: 4px 0px;
+    color: #fff;
+    text-align: center;
+    background-color: #02007F;
+    display: block;
+    width: 100%;
+}
+
+.login_form label {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.login_form input {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 8px 6px;
+    color: #777;
+    border: none;
+    background: #FFFFFF;
+box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
+}
+
+.login_form .btn {
+    margin-top: 30px;
+    float: right;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-right: 20px;
+    background: #C3C3C3;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+}

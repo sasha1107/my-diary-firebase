@@ -1,0 +1,57 @@
+.icon {
+    width: 48px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav {
+    background-color: #02007F;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav h1 {
+    font-weight: normal;
+    font-size: 30px;
+}
+.list_nav{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 16px;
+}
+.list_nav li {
+    color: white;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tit{
+    color: white;
+}
+
+.nav a {
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #C3C3C3;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+}
+.nav a:active {
+    background: #C3C3C3;
+box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+outline: 2px solid black;
+}
+.nav button {
+    float: right;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-right: 20px;
+    background: #C3C3C3;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+}
