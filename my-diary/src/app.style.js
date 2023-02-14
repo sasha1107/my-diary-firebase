@@ -1,0 +1,26 @@
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+
+export const GlobalStyle = createGlobalStyle`
+    ${reset}
+    @import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+
+    @font-face {
+    font-family: 'W95FA';
+    src: url('../public/W95FA.otf') format('opentype');
+    }
+
+    /* base styles */
+    body {
+    font-family: 'W95FA', 'Galmuri9',sans-serif;
+    background: #008282;
+    }
+
+    ul {
+    list-style-type: none;
+    }
+
+    textarea {
+    resize: none;
+    }
+`
