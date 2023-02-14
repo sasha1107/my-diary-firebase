@@ -4,6 +4,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Signup from './pages/signup/Signup'
+import { GlobalStyle } from './app.style';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalStyle/>
       {isAuthReady ? (
         <BrowserRouter>
           <Nav />
