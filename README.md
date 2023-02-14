@@ -20,3 +20,9 @@
 - 회원가입 페이지
 
   <img width="70%" alt="image" src="https://user-images.githubusercontent.com/78977003/206836360-c7fb451c-eb25-4257-83b2-3bfe046d81d5.png">
+
+
+## 리팩토링 사항
+- [ ] 타입스크립트 마이그레이션
+- [ ] 글 삭제 시 모달창 띄우기
+- [ ] 글에 날짜도 디스플레이
