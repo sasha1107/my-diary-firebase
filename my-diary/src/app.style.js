@@ -10,17 +10,36 @@ export const GlobalStyle = createGlobalStyle`
     src: url('../public/W95FA.otf') format('opentype');
     }
 
+    :root {
+        --color-bg: #008282;
+        --color-primary: #02007F;
+        --color-gray: #C3C3C3;
+        font-family: 'W95FA', 'Galmuri9',sans-serif;
+    }
     /* base styles */
     body {
-    font-family: 'W95FA', 'Galmuri9',sans-serif;
-    background: #008282;
+        background: var(--color-bg);
     }
 
     ul {
-    list-style-type: none;
+        list-style-type: none;
     }
 
     textarea {
-    resize: none;
+        resize: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:active {
+            color: red;
+        }
+    }
+    button {
+        cursor: pointer;
+        &:active {
+            color: red;
+        }
     }
 `

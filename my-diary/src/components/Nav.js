@@ -1,37 +1,37 @@
-import styles from "./Nav.module.css"
-import { Link } from "react-router-dom"
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext";
 import icon from '../img/MyComputer.png'
-
+import *  as S from "./nav.style"
 export default function Nav() {
     const { logout } = useLogout();
     const { user } = useAuthContext();
     return (
-        <nav className={styles.nav}>
-            <div className={styles.logo}>
-                <img src={icon} className={styles.icon} alt='컴퓨터 이미지'/>
-            <h1 className={styles.tit}>두근두근 비밀일기</h1>
-
-            </div>
-            <ul className={styles.list_nav}>
+        <S.NavCont>
+            <S.LogoCont>
+                <S.ComputerIcon src={icon} alt='컴퓨터 이미지'/>
+                <S.LogoTxt>
+                    두근두근 비밀일기
+                </S.LogoTxt>
+            </S.LogoCont>
+            <S.OptUl>
                 {!user &&
                 <> 
                 <li>
-                    <Link to='/login'>Login</Link>
+                    <S.LoginSignupLink to='/login'>LOGIN</S.LoginSignupLink>
                 </li>
                 <li>
-                    <Link to='/signup'>Signup</Link>
+                    <S.LoginSignupLink to='/signup'>SIGNUP</S.LoginSignupLink>
                 </li>
                 </>}
                 {user &&
                 <li>
-                    <strong>환영합니다! {user.displayName}님</strong>
-                    <button type="button" onClick={logout}>LOGOUT</button>
+                    <S.WelcomeMsg>환영합니다! <strong>{user.displayName}</strong>님
+                    </S.WelcomeMsg>
+                    <S.LogoutBtn type="button" onClick={logout}>
+                        LOGOUT
+                    </S.LogoutBtn>
                 </li>}
-
-                
-            </ul>
-        </nav>
+            </S.OptUl>
+        </S.NavCont>
     )
 }
