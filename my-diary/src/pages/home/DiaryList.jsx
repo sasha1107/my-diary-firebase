@@ -10,16 +10,20 @@ export default function DiaryList({ diaries }) {
             https://ko.reactjs.org/docs/lists-and-keys.html#embedding-map-in-jsx
             */}
             {/* jsx 리스트에는 key 프로퍼티가 있어야합니다. Key는 React가 어떤 항목을 변경, 추가 또는 삭제할지 식별하는 것을 돕습니다. key는 엘리먼트에 안정적인 고유성을 부여하기 위해 배열 내부의 엘리먼트에 지정해야 합니다.  https://ko.reactjs.org/docs/lists-and-keys.html */}
-
+            
             {diaries.map((item) => {
+                console.log("item", item.createdTime.toDate())
+                
                 return (
                     <li key={item.id}>
                         <div className={styles.head}>
                         <strong className={styles.title}>{item.title}</strong>
                         <button onClick={() => deleteDocument(item.id)}>x</button>
                         </div>
-                        <p className={styles.text}>{item.text}</p>
-                        
+                        <div className={styles.content}>
+                            <p className={styles.date}>{item.createdTime.toDate().toString().split(' ').splice(0, 5).join(' ')}</p>
+                            <p className={styles.text}>{item.text}</p>
+                        </div>
                     </li>
                 )
             })}

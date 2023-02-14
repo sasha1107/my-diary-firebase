@@ -63,7 +63,7 @@ box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4p
     color: #777;
     border: none;
     background: #FFFFFF;
-box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
+    box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
 }
 
 .side_menu button {
@@ -92,13 +92,10 @@ box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4p
     box-sizing: border-box;
     width: inherit;
 
-  /* max-width: 500px; */
-  /* height: 300px; */
-    padding-bottom: 20px;
     
 
     background: #C3C3C3;
-box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
 }
 
 .content_list li+li {
@@ -127,7 +124,10 @@ box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -
 
 .content_list .text {
     font-size: 1em;
-    padding: 20px;
+}
+.content_list .date {
+    color: #3e3e3e;
+    text-align: right;
 }
 
 .content_list button {
@@ -137,7 +137,15 @@ box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -
     top: 0;
     right: 0;
     background: #C3C3C3;
-box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
     font-size: 20px;
 }
 
+.content {
+    padding: 4px 20px 20px 20px;
+}
+.content::after {
+    content: '';
+    display: block;
+    clear: both;
+}
