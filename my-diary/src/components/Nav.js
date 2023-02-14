@@ -27,7 +27,7 @@ export default function Nav() {
                 {user &&
                 <li>
                     <strong>환영합니다! {user.displayName}님</strong>
-                    <button type="button" onClick={logout}>Logout</button>
+                    <button type="button" onClick={logout}>LOGOUT</button>
                 </li>}
 
                 
