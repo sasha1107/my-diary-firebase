@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import Login from './pages/account/Login'
 import Signup from './pages/account/Signup'
 import { GlobalStyle } from './app.style';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path='/login' element={!user ? <Login /> : <Navigate replace={true} to="/"></Navigate>}></Route>
             <Route path='/signup' element={!user ? <Signup /> : <Navigate replace={true} to="/"></Navigate>}></Route>
           </Routes>
+          <Footer/>
         </BrowserRouter>
       ) : 'loading ...'}
     </div >
