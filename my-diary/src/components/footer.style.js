@@ -30,7 +30,8 @@ const MenuList = styled.ol`
     left: 0;
     background-color: var(--color-gray);
     padding: 4px;
-    display: flex;
+    display: none;
+    flex-direction: column;
     li {
         padding: 16px 80px 16px 16px;
         &:hover{

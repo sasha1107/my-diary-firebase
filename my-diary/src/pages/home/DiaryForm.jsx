@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
+import * as S from "./diaryForm.style";
 
 export default function DiaryForm({ uid }) {
 
@@ -33,19 +34,23 @@ export default function DiaryForm({ uid }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <S.FormCont onSubmit={handleSubmit}>
                 <fieldset>
-                    <legend>일기 쓰기</legend>
+                    <S.FormTit>
+                        일기 쓰기
+                        <S.CloseBtn>x</S.CloseBtn>
+                    </S.FormTit>
+                    <S.FormContent>
+                    <S.InpLabel htmlFor="tit">일기 제목 :</S.InpLabel>
+                    <S.Inp id="tit" type="text" required value={title} onChange={handleData} />
 
-                    <label htmlFor="tit">일기 제목 :</label>
-                    <input id="tit" type="text" required value={title} onChange={handleData} />
+                    <S.InpLabel htmlFor="txt">일기 내용 : </S.InpLabel>
+                    <S.TxtArea id="txt" required value={text} onChange={handleData}></S.TxtArea>
 
-                    <label htmlFor="txt">일기 내용 : </label>
-                    <textarea id="txt" required value={text} onChange={handleData}></textarea>
-
-                    <button>저장하기</button>
+                    <S.SubmitBtn><u>저</u>장하기</S.SubmitBtn>
+                    </S.FormContent>
                 </fieldset>
-            </form>
+            </S.FormCont>
         </>
     )
 }

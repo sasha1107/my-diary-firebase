@@ -1,5 +1,6 @@
 import { useFirestore } from '../../hooks/useFirestore'
-import styles from './Home.module.css'
+import * as S from "./diaryList.style";
+
 // diaries는 props 로 전달되기 때문에 원래는 props.diaries 로 접근해야 하지만 비구조화할당을 이용하면 깔끔합니다.
 
 export default function DiaryList({ diaries }) {
@@ -15,16 +16,16 @@ export default function DiaryList({ diaries }) {
                 console.log("item", item.createdTime.toDate())
                 
                 return (
-                    <li key={item.id}>
-                        <div className={styles.head}>
-                        <strong className={styles.title}>{item.title}</strong>
-                        <button onClick={() => deleteDocument(item.id)}>x</button>
-                        </div>
-                        <div className={styles.content}>
-                            <p className={styles.date}>{item.createdTime.toDate().toString().split(' ').splice(0, 5).join(' ')}</p>
-                            <p className={styles.text}>{item.text}</p>
-                        </div>
-                    </li>
+                    <S.DiaryLi key={item.id}>
+                        <S.LiHeader>
+                        <S.DiaryTit>{item.title}</S.DiaryTit>
+                        <S.CloseBtn onClick={() => deleteDocument(item.id)}>x</S.CloseBtn>
+                        </S.LiHeader>
+                        <S.LiContent>
+                            <S.TimeStamp>{item.createdTime.toDate().toString().split(' ').splice(0, 5).join(' ')}</S.TimeStamp>
+                            <S.DiaryTxt>{item.text}</S.DiaryTxt>
+                        </S.LiContent>
+                    </S.DiaryLi>
                 )
             })}
         </>

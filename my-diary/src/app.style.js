@@ -47,7 +47,7 @@ export const GlobalStyle = createGlobalStyle`
             color: red;
         }
     }
-    input {
+    input, textarea {
         font-family: 'W95FA', 'Galmuri9',sans-serif;
     }
 `
