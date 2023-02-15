@@ -3,11 +3,13 @@ import * as S from "./footer.style";
 import Clock from "react-live-clock";
 import { useRef, useContext } from 'react';
 import FormContext from '../context/FormContext';
+import shutdown from "../img/ShutDown.png"
+import info from "../img/Info.png"
+import diary from "../img/Wordpad.png"
 
 export default function Footer() {
     const menuRef = useRef(null);
     const { status, toggleStatus } = useContext(FormContext);
-
     const handleMenu = (e) => {
         // console.log(menuRef.current.style);
         if (!menuRef.current.style.display){
@@ -41,8 +43,18 @@ export default function Footer() {
             >
                 <li
                 onClick={() => toggleStatus()}
-                ><u>일</u>기 쓰기</li>
-                <li><u>정</u>보</li>
+                >
+                    <img src={diary} alt="" width="32px"/>
+                    <u>일</u>기 쓰기
+                </li>
+                <li>
+                    <img src={info} alt="" width="32px"/>
+                    <u>정</u>보
+                </li>
+                <li>
+                    <img src={shutdown} alt="" width="32px"/>
+                    <u>비</u>밀일기 닫기
+                </li>
             </S.MenuList>
             <S.ClockCont>
                 <S.GitHubBtn onClick={handlelink}/>

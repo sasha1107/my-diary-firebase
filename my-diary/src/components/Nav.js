@@ -2,9 +2,12 @@ import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext";
 import icon from '../img/MyComputer.png'
 import *  as S from "./nav.style.js"
+import { useRandomMsg } from "../hooks/useRandomMsg";
+
 export default function Nav() {
     const { logout } = useLogout();
     const { user } = useAuthContext();
+    const msg = useRandomMsg();
     return (
         <S.NavCont>
             <S.LogoCont>
@@ -25,7 +28,7 @@ export default function Nav() {
                 </>}
                 {user &&
                 <li>
-                    <S.WelcomeMsg>환영합니다! <strong>{user.displayName}</strong>님
+                    <S.WelcomeMsg>{msg}<strong> {user.displayName}</strong>님
                     </S.WelcomeMsg>
                     <S.LogoutBtn type="button" onClick={logout}>
                         LOGOUT
