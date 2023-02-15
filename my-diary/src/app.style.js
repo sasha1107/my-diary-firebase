@@ -1,13 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import W95FAFont from "./assets/font/W95FA.otf"
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
-    @import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
 
     @font-face {
     font-family: 'W95FA';
-    src: url('../public/W95FA.otf') format('opentype');
+    src: url(${W95FAFont}) format('opentype');
     }
 
     :root {
@@ -16,9 +16,11 @@ export const GlobalStyle = createGlobalStyle`
         --color-gray: #C3C3C3;
         font-family: 'W95FA', 'Galmuri9',sans-serif;
     }
+
     /* base styles */
     body {
         background: var(--color-bg);
+        font-family: 'W95FA', 'Galmuri9',sans-serif;
     }
 
     ul {
@@ -38,6 +40,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     button {
         cursor: pointer;
+        font-family: 'W95FA', 'Galmuri9',sans-serif;
         &:active {
             color: red;
         }

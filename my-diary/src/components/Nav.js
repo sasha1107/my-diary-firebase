@@ -1,7 +1,7 @@
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext";
 import icon from '../img/MyComputer.png'
-import *  as S from "./nav.style"
+import *  as S from "./nav.style.js"
 export default function Nav() {
     const { logout } = useLogout();
     const { user } = useAuthContext();
