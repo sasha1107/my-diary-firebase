@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-bg: #008282;
         --color-primary: #02007F;
         --color-gray: #C3C3C3;
+        --color-neon: #03ff00;
         font-family: 'W95FA', 'Galmuri9',sans-serif;
     }
 

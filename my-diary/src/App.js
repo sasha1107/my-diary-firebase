@@ -7,6 +7,7 @@ import Signup from './pages/account/Signup'
 import { GlobalStyle } from './app.style';
 import Footer from './components/Footer';
 import { FormProvider } from './context/FormContext';
+import Loading from './pages/etc/Loading';
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
           </Routes>
           <Footer/>
         </BrowserRouter>
-      ) : 'loading ...'}
+      ) : <Loading/>}
       </FormProvider>
     </div >
   );
