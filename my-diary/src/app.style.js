@@ -45,4 +45,7 @@ export const GlobalStyle = createGlobalStyle`
             color: red;
         }
     }
+    input {
+        font-family: 'W95FA', 'Galmuri9',sans-serif;
+    }
 `

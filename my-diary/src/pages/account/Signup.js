@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSignup } from '../../hooks/useSignup'
-import styles from './Signup.module.css'
+import * as S from "./shared.style";
 
 export default function Signup() {
 
@@ -49,23 +49,26 @@ export default function Signup() {
   }, [error])
 
   return (
-    <form className={styles.signup_form} onSubmit={handleSubmit}>
+    <S.Form onSubmit={handleSubmit}>
       <fieldset>
-        <legend>Signup</legend>
-        <label htmlFor='myEmail'>Email</label>
+        <S.FormTit>Signup</S.FormTit>
+        <S.FormContent>
+        <S.InpLabel htmlFor='myEmail'>Email</S.InpLabel>
+        <S.Inp type="email" id="myEmail" required value={email} ref={emailRef} onChange={handleData}/>
+        <S.ErrMsg>{emailErrMsg}</S.ErrMsg>
 
-        <input type="email" id="myEmail" required value={email} ref={emailRef} onChange={handleData}/>
-        <p>{emailErrMsg}</p>
-        <label htmlFor='myPassWord'>Password</label>
-        <input type="password" id="myPassWord" required value={password} ref={pwRef} onChange={handleData}/>
-        <p>{pwErrMsg}</p>
-        <label htmlFor='myNickname'>Nickname</label>
-        <input type="text" id="myNickname" required value={displayName} onChange={handleData}/>
+        <S.InpLabel htmlFor='myPassWord'>Password</S.InpLabel>
+        <S.Inp type="password" id="myPassWord" required value={password} ref={pwRef} onChange={handleData}/>
+        <S.ErrMsg>{pwErrMsg}</S.ErrMsg>
 
-        <button className={styles.btn}>Signup</button>
+        <S.InpLabel htmlFor='myNickname'>Nickname</S.InpLabel>
+        <S.Inp type="text" id="myNickname" required value={displayName} onChange={handleData}/>
+
+        <S.SubmitBtn>SIGNUP</S.SubmitBtn>
+        </S.FormContent>
       </fieldset>
       
-    </form>
+    </S.Form>
 
   )
 }
