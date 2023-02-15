@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
 import FormContext from '../../context/FormContext';
 import * as S from "./diaryForm.style";
+import DragCont from '../../components/DragCont';
 
 export default function DiaryForm({ uid }) {
 
@@ -35,7 +36,7 @@ export default function DiaryForm({ uid }) {
     }, [response.success])
 
     return (
-        <>
+        <DragCont>
             <S.FormCont onSubmit={handleSubmit}>
                 <fieldset>
                     <S.FormTit>
@@ -55,6 +56,6 @@ export default function DiaryForm({ uid }) {
                     </S.FormContent>
                 </fieldset>
             </S.FormCont>
-        </>
+        </DragCont>
     )
 }

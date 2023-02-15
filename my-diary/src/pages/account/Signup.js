@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSignup } from '../../hooks/useSignup'
 import * as S from "./shared.style";
+import DragCont from '../../components/DragCont';
 
 export default function Signup() {
 
@@ -49,6 +50,7 @@ export default function Signup() {
   }, [error])
 
   return (
+    <DragCont>
     <S.Form onSubmit={handleSubmit}>
       <fieldset>
         <S.FormTit>Signup</S.FormTit>
@@ -67,8 +69,8 @@ export default function Signup() {
         <S.SubmitBtn>SIGNUP</S.SubmitBtn>
         </S.FormContent>
       </fieldset>
-      
     </S.Form>
+    </DragCont>
 
   )
 }

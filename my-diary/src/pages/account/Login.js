@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useLogin } from '../../hooks/useLogin';
 import * as S from "./shared.style";
+import DragCont from '../../components/DragCont';
 
 export default function Login() {
 
@@ -45,6 +46,7 @@ export default function Login() {
     }, [error])
 
     return (
+        <DragCont>
         <S.Form onSubmit={handleSubmit}>
             <fieldset>
                 <S.FormTit>Login</S.FormTit>
@@ -76,5 +78,6 @@ export default function Login() {
                 </S.FormContent>
             </fieldset>
         </S.Form>
+        </DragCont>
     )
 }
