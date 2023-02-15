@@ -9,7 +9,7 @@ export default function Footer() {
     const { status, toggleStatus } = useContext(FormContext);
 
     const handleMenu = (e) => {
-        console.log(menuRef.current.style);
+        // console.log(menuRef.current.style);
         if (!menuRef.current.style.display){
             menuRef.current.style.display = "flex";
         } 
@@ -30,6 +30,14 @@ export default function Footer() {
             <S.MenuBtn onClick={handleMenu}/>
             <S.MenuList
                 ref={menuRef}
+                onMouseLeave={(e)=> {
+                    if (e.target.tagName === "LI"){
+                        e.target.parentElement.style.display = "none"; 
+                    }
+                    else if (e.target.tagName === "OL"){
+                        e.target.style.display = "none"; 
+                    }
+                }}
             >
                 <li
                 onClick={() => toggleStatus()}
