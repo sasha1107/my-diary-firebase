@@ -40,9 +40,14 @@ export const GlobalStyle = createGlobalStyle`
     }
     button {
         cursor: pointer;
+        border: none;
+        background: none;
         font-family: 'W95FA', 'Galmuri9',sans-serif;
         &:active {
             color: red;
         }
+    }
+    input, textarea {
+        font-family: 'W95FA', 'Galmuri9',sans-serif;
     }
 `

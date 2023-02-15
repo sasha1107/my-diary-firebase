@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className={styles.cont}>
-      <aside className={styles.side_menu}>
+      <aside>
         <DiaryForm uid={user.uid}/>
       </aside>
       <ul className={styles.content_list}>
