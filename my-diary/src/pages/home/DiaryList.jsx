@@ -1,10 +1,15 @@
 import { useFirestore } from '../../hooks/useFirestore'
+import { useState } from 'react';
+import { PortalModal } from '../../components/modal/Modal';
+import useModal from '../../hooks/useModal';
+
 import * as S from "./diaryList.style";
 
 // diaries는 props 로 전달되기 때문에 원래는 props.diaries 로 접근해야 하지만 비구조화할당을 이용하면 깔끔합니다.
 
 export default function DiaryList({ diaries }) {
     const {deleteDocument} = useFirestore("myDiary")
+    
     return (
         <>
             {/* jsx를 바로 반영하기 위해 map을 사용하겠습니다. map은 새로운 배열을 반환하는 순환문입니다.
@@ -16,6 +21,7 @@ export default function DiaryList({ diaries }) {
                 console.log("item", item.createdTime.toDate())
                 
                 return (
+                    <>
                     <S.DiaryLi key={item.id}>
                         <S.LiHeader>
                         <S.DiaryTit>{item.title}</S.DiaryTit>
@@ -26,6 +32,7 @@ export default function DiaryList({ diaries }) {
                             <S.DiaryTxt>{item.text}</S.DiaryTxt>
                         </S.LiContent>
                     </S.DiaryLi>
+                    </>
                 )
             })}
         </>

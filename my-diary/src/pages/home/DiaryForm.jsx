@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
+import FormContext from '../../context/FormContext';
 import * as S from "./diaryForm.style";
 
 export default function DiaryForm({ uid }) {
@@ -7,6 +8,7 @@ export default function DiaryForm({ uid }) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const { addDocument, response } = useFirestore('myDiary');
+    const { status, toggleStatus } = useContext(FormContext);
 
     const handleData = (event) => {
         if (event.target.id === 'tit') {
@@ -38,7 +40,9 @@ export default function DiaryForm({ uid }) {
                 <fieldset>
                     <S.FormTit>
                         일기 쓰기
-                        <S.CloseBtn>x</S.CloseBtn>
+                        <S.CloseBtn
+                        onClick={() => toggleStatus()}
+                        >x</S.CloseBtn>
                     </S.FormTit>
                     <S.FormContent>
                     <S.InpLabel htmlFor="tit">일기 제목 :</S.InpLabel>

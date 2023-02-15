@@ -6,6 +6,7 @@ import Login from './pages/account/Login'
 import Signup from './pages/account/Signup'
 import { GlobalStyle } from './app.style';
 import Footer from './components/Footer';
+import { FormProvider } from './context/FormContext';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle/>
+      <FormProvider>
       {isAuthReady ? (
         <BrowserRouter>
           <Nav />
@@ -25,6 +27,7 @@ function App() {
           <Footer/>
         </BrowserRouter>
       ) : 'loading ...'}
+      </FormProvider>
     </div >
   );
 }
