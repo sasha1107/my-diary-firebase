@@ -22,36 +22,37 @@ const FormTit = styled.legend`
 
 const FormContent = styled.div`
     padding: 40px;
+    width: inherit;
 `
 
 const InpLabel = styled.label`
     font-size: 1.1em;
     display: block;
-    text-align: center;
     margin-bottom: 8px;
+    & + input{
+        margin-bottom: 20px;
+        & + p {
+            margin-bottom: 20px;
+        }
+    }
 `
 
 const Inp = styled.input`
     display: block;
     font-size: 1.1em;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     color: #777;
     border: none;
-    padding: 8px;
+    padding: 8px 0px 8px 8px;
     box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
+    box-sizing: border-box;
     /* margin-bottom: 20px; */
-    & + label {
-        margin-top: 20px;
-    }
-    & + p {
-        margin-top: 10px;
-    }
+
 `
 const ErrMsg = styled.p`
     font-size: 0.8em;
     display: block;
-    width: 90%;
     margin: 0 auto;
     color: red;
 `

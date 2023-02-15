@@ -43,7 +43,7 @@ export default function Signup() {
       setPwErrMsg("* 비밀번호는 6자 이상 입력해주세요.");
       setEmailErrMsg(null);
 
-      // 이메일 인풋창으로 다시 커서 포커스
+      // 패스워드 인풋창으로 다시 커서 포커스
       pwRef.current.focus();
     }
   }, [error])
@@ -53,15 +53,15 @@ export default function Signup() {
       <fieldset>
         <S.FormTit>Signup</S.FormTit>
         <S.FormContent>
-        <S.InpLabel htmlFor='myEmail'>Email</S.InpLabel>
+        <S.InpLabel htmlFor='myEmail'>Email :</S.InpLabel>
         <S.Inp type="email" id="myEmail" required value={email} ref={emailRef} onChange={handleData}/>
         <S.ErrMsg>{emailErrMsg}</S.ErrMsg>
 
-        <S.InpLabel htmlFor='myPassWord'>Password</S.InpLabel>
+        <S.InpLabel htmlFor='myPassWord'>Password :</S.InpLabel>
         <S.Inp type="password" id="myPassWord" required value={password} ref={pwRef} onChange={handleData}/>
         <S.ErrMsg>{pwErrMsg}</S.ErrMsg>
 
-        <S.InpLabel htmlFor='myNickname'>Nickname</S.InpLabel>
+        <S.InpLabel htmlFor='myNickname'>Nickname :</S.InpLabel>
         <S.Inp type="text" id="myNickname" required value={displayName} onChange={handleData}/>
 
         <S.SubmitBtn>SIGNUP</S.SubmitBtn>
