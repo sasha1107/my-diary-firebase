@@ -5,6 +5,7 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from '../../hooks/useCollection';
 import FormContext from '../../context/FormContext';
 import { useContext } from 'react';
+import IconArea from './IconArea';
 
 export default function Home() {  
   const { user } = useAuthContext();
@@ -12,14 +13,18 @@ export default function Home() {
   const { status } = useContext(FormContext);
 
   return (
-    <main className={styles.cont}>
-      <aside>
-        {status === "display" ? <DiaryForm uid={user.uid}/> : <></>}
-      </aside>
-      <ul className={styles.content_list}>
-      {error && <strong>{error}</strong>}
-      {documents && <DiaryList diaries={documents} />}
-      </ul>
-    </main>
+    <>
+
+      <IconArea />
+      <main className={styles.cont}>
+        <aside>
+          {status === "display" ? <DiaryForm uid={user.uid}/> : <></>}
+        </aside>
+        <ul className={styles.content_list}>
+        {error && <strong>{error}</strong>}
+        {documents && <DiaryList diaries={documents} />}
+        </ul>
+      </main>
+    </>
   )
 }

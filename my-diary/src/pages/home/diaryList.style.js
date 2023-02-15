@@ -28,6 +28,12 @@ const DiaryTit = styled.strong`
     width: 100%;
     text-align: center;
     cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `
 const CloseBtn = styled.button`
     width: 32px;

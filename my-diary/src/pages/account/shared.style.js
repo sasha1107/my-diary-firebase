@@ -18,6 +18,12 @@ const FormTit = styled.legend`
     box-sizing: border-box;
     padding: 6px;
     text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `
 
 const FormContent = styled.div`
