@@ -1,10 +1,12 @@
 import React from 'react'
 import * as S from "./footer.style";
 import Clock from "react-live-clock";
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import FormContext from '../context/FormContext';
 
 export default function Footer() {
     const menuRef = useRef(null);
+    const { status, toggleStatus } = useContext(FormContext);
 
     const handleMenu = (e) => {
         console.log(menuRef.current.style);
@@ -29,7 +31,9 @@ export default function Footer() {
             <S.MenuList
                 ref={menuRef}
             >
-                <li><u>일</u>기 쓰기</li>
+                <li
+                onClick={() => toggleStatus()}
+                ><u>일</u>기 쓰기</li>
                 <li><u>정</u>보</li>
             </S.MenuList>
             <S.ClockCont>
