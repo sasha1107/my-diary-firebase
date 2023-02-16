@@ -64,6 +64,8 @@ const ClockCont = styled.article`
     display: flex;
     align-items: center;
     gap: 8px;
+    box-shadow: inset -2px -2px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E;
+    padding: 4px 12px;
 `
 
 const GitHubBtn = styled.button`
