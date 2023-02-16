@@ -85,6 +85,9 @@ const SubmitBtn = styled.button`
     font-size: 1em;
     background: var(--color-gray);
     box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
+    &:active {
+        outline: 2px solid #000000;
+    }
 `
 
 export {
