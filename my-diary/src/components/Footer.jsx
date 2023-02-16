@@ -42,8 +42,10 @@ export default function Footer() {
                 }}
             >
                 <li
-                onClick={() => toggleStatus()}
-                >
+                    onClick={() => 
+                    {
+                        if (status === "none") toggleStatus()
+                }}>
                     <img src={diary} alt="" width="32px"/>
                     <u>일</u>기 쓰기
                 </li>
