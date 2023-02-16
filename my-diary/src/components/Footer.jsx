@@ -6,10 +6,13 @@ import FormContext from '../context/FormContext';
 import shutdown from "../img/ShutDown.png"
 import info from "../img/Info.png"
 import diary from "../img/Wordpad.png"
+import { useAuthContext } from '../hooks/useAuthContext';
+
 
 export default function Footer() {
     const menuRef = useRef(null);
     const { status, toggleStatus } = useContext(FormContext);
+    const { isAuthReady, user } = useAuthContext();
     const handleMenu = (e) => {
         // console.log(menuRef.current.style);
         if (!menuRef.current.style.display){
@@ -31,7 +34,7 @@ export default function Footer() {
         <S.FooterCont>
             <S.MenuBtn onClick={handleMenu}/>
             <S.TabOl>
-                {status !== "none" ? 
+                {status !== "none"  && user ? 
                 <li>일기 쓰기</li>
                 : <></>}
                 {/* <li>일기</li> */}
