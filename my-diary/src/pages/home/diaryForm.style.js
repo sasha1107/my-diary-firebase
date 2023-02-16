@@ -39,6 +39,10 @@ const CloseBtn = styled.button`
     right: 0;
     box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
     font-size: 20px;
+    &:active {
+        background: #E3E3E3;
+        box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E, inset -4px -4px 0px #B1B1B1;
+    }
 `
 
 const InpLabel = styled.label`

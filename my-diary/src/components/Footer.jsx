@@ -30,6 +30,12 @@ export default function Footer() {
     return (
         <S.FooterCont>
             <S.MenuBtn onClick={handleMenu}/>
+            <S.TabOl>
+                {status !== "none" ? 
+                <li>일기 쓰기</li>
+                : <></>}
+                {/* <li>일기</li> */}
+            </S.TabOl>
             <S.MenuList
                 ref={menuRef}
                 onMouseLeave={(e)=> {

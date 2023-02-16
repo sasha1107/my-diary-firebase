@@ -9,18 +9,31 @@ const FooterCont = styled.footer`
     position: fixed;
     bottom: 0;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     align-items: center;
     padding: 8px;
 `
 const MenuBtn = styled.button`
     width: 80px;
-    height: 35px;
+    height: 34px;
     background-image: url(${startIcon});
     background-size: contain;
     background-repeat: no-repeat;
     &:hover {
         background-image: url(${startHoverIcon});
+    }
+`
+const TabOl = styled.ol`
+    display: flex;
+    gap: 8px;
+    li {
+        padding: 9px 100px 9px 16px;
+        background: var(--color-gray);
+        box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E, inset 4px 4px 0px #B1B1B1;
+        &:hover {
+            background: #E3E3E3;
+            box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E, inset -4px -4px 0px #B1B1B1;
+        }
     }
 `
 
@@ -46,7 +59,8 @@ const MenuList = styled.ol`
 `
 const ClockCont = styled.article`
     display: block;
-    margin-right: 20px;
+    position: absolute;
+    right: 2%;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -62,6 +76,7 @@ const GitHubBtn = styled.button`
 export {
     FooterCont,
     MenuBtn,
+    TabOl,
     MenuList,
     ClockCont,
     GitHubBtn
