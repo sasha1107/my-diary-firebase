@@ -35,7 +35,7 @@ export default function DiaryList({ diaries }) {
                                 setIsOpen(false)
                             }}
                             tit="일기 삭제"
-                            msg="일기를 삭제하시겠습니깡?"
+                            msg="일기를 삭제하시겠습니까?"
                             btn1="취소"
                             btn2="삭제"
                         />

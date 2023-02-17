@@ -9,17 +9,25 @@ export default function Modal({ open, onClose, onFunc, tit, msg, btn1, btn2 }) {
         <>
             <S.Overlay/>
             <S.ModalCont>
-                <div className="title">
+                <S.ModalHeader>
                     {tit}
-                    <button onClick={onClose}>x</button>
-                </div>
-                <div className="body">
+                    <S.CloseBtn onClick={onClose}>x</S.CloseBtn>
+                </S.ModalHeader>
+                <S.ModalBody>
                     <p>{msg}</p>
-                    <div className="buttons">
-                        <button onClick={onClose}>{btn1}</button>
-                        <button onClick={onFunc}>{btn2}</button>
-                    </div>
-                </div>
+                    <S.BtnCont className="buttons">
+                        <S.Btn1 onClick={onClose}>
+                            <div>
+                                {btn1}
+                            </div>    
+                        </S.Btn1>
+                        <S.Btn2 onClick={onFunc}>
+                            <div>
+                                {btn2}
+                            </div>
+                        </S.Btn2>
+                    </S.BtnCont>
+                </S.ModalBody>
             </S.ModalCont>
         </>,
         document.getElementById("modal")
