@@ -27,9 +27,18 @@ export default function DiaryList({ diaries }) {
                         <S.DiaryTit>{item.title}</S.DiaryTit>
                         {/* <S.CloseBtn onClick={() => deleteDocument(item.id)}>x</S.CloseBtn> */}
                         <S.CloseBtn onClick={() => setIsOpen(true)}>x</S.CloseBtn>
-                        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                            삭제하시겠습니깡?
-                        </Modal>
+                        <Modal
+                            open={isOpen}
+                            onClose={() => setIsOpen(false)}
+                            onFunc={() => {
+                                deleteDocument(item.id)
+                                setIsOpen(false)
+                            }}
+                            tit="일기 삭제"
+                            msg="일기를 삭제하시겠습니깡?"
+                            btn1="취소"
+                            btn2="삭제"
+                        />
                         </S.LiHeader>
                         <S.LiContent>
                             <S.TimeStamp>{item.createdTime.toDate().toString().split(' ').splice(0, 5).join(' ')}</S.TimeStamp>
