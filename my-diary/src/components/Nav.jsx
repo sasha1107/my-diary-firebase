@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { useLogout } from "../hooks/useLogout"
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useRandomMsg } from "../hooks/useRandomMsg";
+import Modal from "./Modal/Modal";
 import icon from '../img/MyComputer.png'
 import *  as S from "./nav.style.js"
-import { useRandomMsg } from "../hooks/useRandomMsg";
 
 export default function Nav() {
     const { logout } = useLogout();
     const { user } = useAuthContext();
     const msg = useRandomMsg();
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
+        <>
         <S.NavCont>
             <S.LogoCont>
                 <S.ComputerIcon src={icon} alt='컴퓨터 이미지'/>
@@ -30,11 +35,24 @@ export default function Nav() {
                 <li>
                     <S.WelcomeMsg>{msg}<strong> {user.displayName}</strong>님
                     </S.WelcomeMsg>
-                    <S.LogoutBtn type="button" onClick={logout}>
+                    <S.LogoutBtn type="button" onClick={() => setIsOpen(true)}>
                         LOGOUT
                     </S.LogoutBtn>
                 </li>}
             </S.OptUl>
         </S.NavCont>
+        <Modal
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            onFunc={() => {
+                logout()
+                setIsOpen(false)
+            }}
+            tit="로그아웃"
+            msg="로그아웃하시겠습니까?"
+            btn1="취소"
+            btn2="로그아웃"
+        />
+        </>
     )
 }
