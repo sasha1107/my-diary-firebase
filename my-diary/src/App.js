@@ -7,6 +7,7 @@ import Signup from './pages/account/Signup'
 import { GlobalStyle } from './app.style';
 import Footer from './components/Footer';
 import { FormProvider } from './context/FormContext';
+import { InfoProvider } from './context/InfoContext';
 import Loading from './pages/etc/Loading';
 import Off from './pages/etc/Off';
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       <GlobalStyle/>
       <FormProvider>
+      <InfoProvider>
       {isAuthReady ? (
         <BrowserRouter>
           <Nav />
@@ -30,6 +32,7 @@ function App() {
           <Footer/>
         </BrowserRouter>
       ) : <Loading/>}
+      </InfoProvider>
       </FormProvider>
     </div >
   );

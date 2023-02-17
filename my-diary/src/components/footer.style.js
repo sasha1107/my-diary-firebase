@@ -27,7 +27,8 @@ const TabOl = styled.ol`
     display: flex;
     gap: 8px;
     li {
-        padding: 9px 100px 9px 16px;
+        padding: 9px 18px;
+        width: 160px;
         background: var(--color-gray);
         box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E, inset 4px 4px 0px #B1B1B1;
         &:hover {
@@ -74,12 +75,30 @@ const GitHubBtn = styled.button`
     background-image: url(${GitHubIcon});
     background-size: contain;
     background-repeat: no-repeat;
-` 
+`
+const InfoTable = styled.table`
+    text-align: center;
+    thead {
+
+    }
+    tbody {
+
+    }
+    th, td {
+        border: 1px dashed black;
+        border-collapse: collapse;
+        padding: 8px 16px;
+    }
+    img {
+        margin-bottom: 4px;
+    }
+`
 export {
     FooterCont,
     MenuBtn,
     TabOl,
     MenuList,
     ClockCont,
-    GitHubBtn
+    GitHubBtn,
+    InfoTable
 }
