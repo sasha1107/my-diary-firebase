@@ -19,13 +19,15 @@ export default function Modal({ open, onClose, onFunc, tit, msg, btn1, btn2, chi
                     <S.BtnCont className="buttons">
                         <S.Btn1 onClick={onClose}>
                             <div>
-                                {btn1}
+                                <u>{btn1.split('').splice(0,1)}</u>
+                                {btn1.split('').splice(1,)}
                             </div>    
                         </S.Btn1>
                         { btn2 ? 
                             <S.Btn2 onClick={onFunc}>
                                 <div>
-                                    {btn2}
+                                <u>{btn2.split('').splice(0,1)}</u>
+                                {btn2.split('').splice(1,)}
                                 </div>
                             </S.Btn2>
                         : <></>}
