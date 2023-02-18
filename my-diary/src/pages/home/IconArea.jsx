@@ -38,7 +38,9 @@ export default function IconArea() {
             <DesktopIcon src={internet} txt="블로그" func={() => {
                 handleUrl("https://velog.io/@sasha1107")
             }}/>
-            <DesktopIcon src={network} txt="네트워크"/>
+            <DesktopIcon src={network} txt="네트워크" func={() => {
+                handleUrl("https://www.linkedin.com/in/%EC%88%98%ED%98%84-%EC%A0%95-749242266")
+            }}/>
             <DesktopIcon src={bin} txt="휴지통" func={() => audio.play()}/>
         </DesktopCont>
     )
