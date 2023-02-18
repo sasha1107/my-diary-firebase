@@ -9,6 +9,7 @@ import info from "../img/Info.png"
 import diary from "../img/Wordpad.png"
 import { useAuthContext } from '../hooks/useAuthContext';
 import Modal from './Modal/Modal';
+import { ReactDOM } from 'react';
 
 export default function Footer() {
     const menuRef = useRef(null);
@@ -21,6 +22,7 @@ export default function Footer() {
 
     const { isAuthReady, user } = useAuthContext();
     const [isOpen, setIsOpen] = useState(false);
+    const [offModal, setOffModal] = useState(false);
     
 
     const handleMenu = (e) => {
@@ -78,7 +80,9 @@ export default function Footer() {
                     <img src={info} alt="" width="32px"/>
                     <u>정</u>보
                 </li>
-                <li>
+                <li onClick={() => {
+                    setOffModal(true);
+                }}>
                     <img src={shutdown} alt="" width="32px"/>
                     <u>비</u>밀일기 닫기
                 </li>
@@ -131,6 +135,34 @@ export default function Footer() {
                 </tr>
             </tbody>
         </S.InfoTable>
+        </Modal>
+        <Modal
+        open={offModal}
+            onClose={() => {
+                setOffModal(false);
+            }}
+            tit="Processing..."
+            msg="다 기다려도 안꺼집니다 ..."
+            btn1="취소"
+        >
+            <S.StatusBar>
+                <ol>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                    <li>1</li>
+                </ol>
+            </S.StatusBar>
+
         </Modal>
         </>
     )

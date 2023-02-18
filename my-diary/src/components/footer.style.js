@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import startIcon from "../img/Off/On=Off.png";
 import startHoverIcon from "../img/Off/On=On.png";
 import GitHubIcon from "../img/github.png";
@@ -93,6 +93,47 @@ const InfoTable = styled.table`
         margin-bottom: 4px;
     }
 `
+const StatusAni = keyframes`
+    to {
+        background-color: var(--color-primary);
+        color: var(--color-primary);
+    }
+`
+
+const StatusBar = styled.div`
+    width: 200px;
+    height: 20px;
+    box-shadow: inset -2px -2px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E;
+    padding: 4px;
+    ol {
+        width: 100%;
+        display: flex;
+        height: 100%;
+        gap: 2px;
+        align-items: stretch;
+        li {
+            padding: 4px;
+            color: var(--color-gray);
+            background-color: none;
+            animation: ${StatusAni} forwards;
+            &:nth-child(1){ animation-delay: 1s; }
+            &:nth-child(2){ animation-delay: 2s; }
+            &:nth-child(3){ animation-delay: 3s; }
+            &:nth-child(4){ animation-delay: 4s; }
+            &:nth-child(5){ animation-delay: 5s; }
+            &:nth-child(6){ animation-delay: 6s; }
+            &:nth-child(7){ animation-delay: 7s; }
+            &:nth-child(8){ animation-delay: 8s; }
+            &:nth-child(9){ animation-delay: 9s; }
+            &:nth-child(10){ animation-delay: 10s; }
+            &:nth-child(11){ animation-delay: 11s; }
+            &:nth-child(12){ animation-delay: 12s; }
+            &:nth-child(13){ animation-delay: 13s; }
+        }
+    }
+`
+
+
 export {
     FooterCont,
     MenuBtn,
@@ -100,5 +141,6 @@ export {
     MenuList,
     ClockCont,
     GitHubBtn,
-    InfoTable
+    InfoTable,
+    StatusBar
 }
