@@ -6,9 +6,8 @@ import bin from "../../img/Bin.png"
 import network from "../../img/Network.png"
 import internet from "../../img/Internet.png"
 import styled from 'styled-components';
-import FormContext from '../../context/FormContext';
-import { useContext } from 'react';
 import binAudio from "../../assets/audio/Windows_XP_Recycle.wav"
+import { useSelector, useDispatch } from 'react-redux';
 
 const DesktopCont = styled.div`
     padding: 20px;
@@ -18,11 +17,14 @@ const DesktopCont = styled.div`
     position:absolute;
 `
 export default function IconArea() {
-    const { status, toggleStatus } = useContext(FormContext);
 
     const handleUrl = (URL) => {
         window.open(URL, '_blank');
     }
+    const dispatch = useDispatch();
+    // 일기 쓰기 탭 디스플레이 상태
+    const formStatus = useSelector(state => state.form);
+
     const audio = new Audio(binAudio);
     return (
         <DesktopCont>
@@ -30,7 +32,7 @@ export default function IconArea() {
                 src={computer}
                 txt="일기쓰기"
                 func={() => 
-                    { if(status  === "none") toggleStatus()}}
+                    { if(!formStatus) dispatch({type: "toggleForm"})}}
             />
             <DesktopIcon src={folder} txt="소스코드" func={() => {
                 handleUrl("https://github.com/sasha1107/my-diary-firebase")

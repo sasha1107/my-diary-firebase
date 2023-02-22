@@ -1,15 +1,17 @@
 import { useEffect, useState, useContext } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
-import FormContext from '../../context/FormContext';
 import * as S from "./diaryForm.style";
 import DragCont from '../../components/DragCont';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function DiaryForm({ uid }) {
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const { addDocument, response } = useFirestore('myDiary');
-    const { status, toggleStatus } = useContext(FormContext);
+    // const { status, toggleStatus } = useContext(FormContext);
+    const dispatch = useDispatch();
+    const status = useSelector(state => state.form)
 
     const handleData = (event) => {
         if (event.target.id === 'tit') {
@@ -42,7 +44,9 @@ export default function DiaryForm({ uid }) {
                     <S.FormTit>
                         일기 쓰기
                         <S.CloseBtn
-                        onClick={() => toggleStatus()}
+                        onClick={() => {
+                            dispatch({type: "toggleForm"})
+                        }}
                         >x</S.CloseBtn>
                     </S.FormTit>
                     <S.FormContent>

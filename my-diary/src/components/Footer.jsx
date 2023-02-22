@@ -1,29 +1,31 @@
 import React from 'react'
 import * as S from "./footer.style";
 import Clock from "react-live-clock";
-import { useRef, useContext, useState } from 'react';
-import FormContext from '../context/FormContext';
-import InfoContext from '../context/InfoContext';
+import { useRef, useState } from 'react';
 import shutdown from "../img/ShutDown.png"
 import info from "../img/Info.png"
 import diary from "../img/Wordpad.png"
 import { useAuthContext } from '../hooks/useAuthContext';
 import Modal from './Modal/Modal';
-import { ReactDOM } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function Footer() {
     const menuRef = useRef(null);
 
+    const dispatch = useDispatch();
+
     // 일기 쓰기 탭 디스플레이 상태
-    const { status, toggleStatus } = useContext(FormContext);
+    const formStatus = useSelector(state => state.form);
 
     // 정보 탭 디스플레이 상태
-    const { infoStatus, toggleInfoStatus } = useContext(InfoContext);
+    const infoStatus = useSelector(state => state.info);
 
-    const { isAuthReady, user } = useAuthContext();
+    // exit 탭 디스플레이 상태
+    const exitStatus = useSelector(state => state.exit)
+
+    const { user, isAuthReady } = useAuthContext();
     const [isOpen, setIsOpen] = useState(false);
     const [offModal, setOffModal] = useState(false);
-    
 
     const handleMenu = (e) => {
         // console.log(menuRef.current.style);
@@ -47,11 +49,20 @@ export default function Footer() {
         <S.FooterCont>
             <S.MenuBtn onClick={handleMenu}/>
             <S.TabOl>
-                {status !== "none"  && user ? 
+                {formStatus && user ? 
                 <li>일기 쓰기</li>
                 : <></>}
-                {infoStatus !== "none" && user ?
+                {infoStatus && user ?
                 <li>정보</li>
+                : <></>}
+                {/* {(diaryList !== 0) ? 
+                <li>일기 목록
+                    <span>{diaryList.toString()}</span>
+                </li>
+                :<></>
+                } */}
+                {exitStatus && user ?
+                <li>비밀일기 닫기</li>
                 : <></>}
             </S.TabOl>
             <S.MenuList
@@ -68,19 +79,22 @@ export default function Footer() {
                 <li
                     onClick={() => 
                     {
-                        if (status === "none") toggleStatus()
+                        if (!formStatus) {
+                            dispatch({type: "toggleForm"})
+                        }
                 }}>
                     <img src={diary} alt="" width="32px"/>
                     <u>일</u>기 쓰기
                 </li>
                 <li onClick={() => {
-                    if (infoStatus === "none") {toggleInfoStatus()}
+                    if (!infoStatus) {dispatch({type: "toggleInfo"})}
                     setIsOpen(true);
                 }}>
                     <img src={info} alt="" width="32px"/>
                     <u>정</u>보
                 </li>
                 <li onClick={() => {
+                    dispatch({type: "toggleExit"});
                     setOffModal(true);
                 }}>
                     <img src={shutdown} alt="" width="32px"/>
@@ -99,7 +113,7 @@ export default function Footer() {
         open={isOpen}
             onClose={() => {
                 setIsOpen(false);
-                toggleInfoStatus();
+                dispatch({type: "toggleInfo"});
             }}
             tit="정보"
             msg="리액트와 파이어베이스로 구현한 웹 다이어리 서비스"
@@ -140,6 +154,7 @@ export default function Footer() {
         open={offModal}
             onClose={() => {
                 setOffModal(false);
+                dispatch({type: "toggleExit"});
             }}
             tit="Processing..."
             msg="다 기다려도 안꺼집니다 ..."
