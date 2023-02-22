@@ -10,7 +10,7 @@ Window 95를 테마로 한 웹 다이어리 서비스
 <table>
       <thead align="center">
         <tr>
-          <th colspan="2" style="text-align:center;"><span style="font-size:16px;">프론트엔드</span></th>
+          <th colspan="3" style="text-align:center;"><span style="font-size:16px;">프론트엔드</span></th>
           <th style="text-align:center;"><span style="font-size:16px">서버, 배포</span></th>
           <th style="text-align:center;"><span style="font-size:16px;">디자인</span></th>
         </tr>
@@ -21,6 +21,11 @@ Window 95를 테마로 한 웹 다이어리 서비스
             <a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1579667701/noticon/basd2y5bygpkqjiixuqy.png" alt="React" height="50" /></a>
             <br>
             <code>React</code>
+          </td>
+          <td align="center" style="text-align:center;">
+            <a href="https://ko.redux.js.org/" target="_blank"><img style="margin: 10px" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png" alt="React" height="50" /></a>
+            <br>
+            <code>Redux</code>
           </td>
           <td align="center" style="text-align:center; margin: 0 auto;">
             <a href="https://styled-components.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/styled-components.png" alt="Styled Components" height="50" /></a>
