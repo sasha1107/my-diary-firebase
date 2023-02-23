@@ -1,6 +1,7 @@
 import React from 'react'
 import DragCont from '../../../components/DragContainer/DragCont';
 import * as S from "../shared.style";
+import { PropsType } from './Login';
 
 export default function LoginView({
     isPending,
@@ -12,7 +13,7 @@ export default function LoginView({
     pwRef,
     handleData,
     handleSubmit
-}) {
+}: PropsType) {
     return (
         <DragCont>
             <S.Form onSubmit={handleSubmit}>

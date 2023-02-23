@@ -1,4 +1,4 @@
-export function reducer(state, action){
+export function reducer(state, action) {
     if (action.type === 'toggleForm'){
         return {
             ...state, form: !state.form
@@ -16,7 +16,7 @@ export function reducer(state, action){
     }
     else if (action.type === 'countDiary'){
         return {
-            ...state, diaryList: state.count
+            ...state, diaryList: state.diaryList
         }
     }
     return state;

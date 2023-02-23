@@ -9,7 +9,7 @@
       // "disableSourceOfProjectReferenceRedirect": true,  /* Disable preferring source files instead of declaration files when referencing composite projects. */
       // "disableSolutionSearching": true,                 /* Opt a project out of multi-project reference checking when editing. */
       // "disableReferencedProjectLoad": true,             /* Reduce the number of projects loaded automatically by TypeScript. */
-  
+      
       /* Language and Environment */
       "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
       // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
@@ -31,7 +31,7 @@
       // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
       // "paths": {},                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
       // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-      // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+      "typeRoots": ["./@types", "./@node_modules/@types"],                                  /* Specify multiple folders that act like './node_modules/@types'. */
       // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
       // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
       // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
@@ -39,7 +39,7 @@
       // "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
   
       /* JavaScript Support */
-      // "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+      "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
       // "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
       // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
   
@@ -95,11 +95,12 @@
       // "noPropertyAccessFromIndexSignature": true,       /* Enforces using indexed accessors for keys declared using an indexed type. */
       // "allowUnusedLabels": true,                        /* Disable error reporting for unused labels. */
       // "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
-  
+
       /* Completeness */
       // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-      "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-    }
+      "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
+    },
+    "include": ["src"],
 }
 
 // {
@@ -114,7 +115,7 @@
 //      "outDir": "./", //js파일 아웃풋 경로바꾸기
 //      "rootDir": "./", //루트경로 바꾸기 (js 파일 아웃풋 경로에 영향줌)
 //      "removeComments": true, //컴파일시 주석제거
-   
+
 //      "strict": true, //strict 관련, noimplicit 어쩌구 관련 모드 전부 켜기
 //      "noImplicitAny": true, //any타입 금지 여부
 //      "strictNullChecks": true, //null, undefined 타입에 이상한 짓 할시 에러내기
@@ -122,7 +123,7 @@
 //      "strictPropertyInitialization": true, //class constructor 작성시 타입체크 강하게
 //      "noImplicitThis": true, //this 키워드가 any 타입일 경우 에러내기
 //      "alwaysStrict": true, //자바스크립트 "use strict" 모드 켜기
-   
+
 //      "noUnusedLocals": true, //쓰지않는 지역변수 있으면 에러내기
 //      "noUnusedParameters": true, //쓰지않는 파라미터 있으면 에러내기
 //      "noImplicitReturns": true, //함수에서 return 빼먹으면 에러내기

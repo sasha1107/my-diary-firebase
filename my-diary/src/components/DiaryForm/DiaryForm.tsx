@@ -1,13 +1,21 @@
+import React from 'react';
 import { useEffect, useState } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
 import DiaryFormView from './DiaryFormView';
 
-export default function DiaryForm({ uid }) {
+export interface PropsType {
+    title: string;
+    text: string;
+    handleData: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void
+}
+
+export default function DiaryForm({ uid } : { uid: string }) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const { addDocument, response } = useFirestore('myDiary');
 
-    const handleData = (event) => {
+    const handleData = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (event.target.id === 'tit') {
             setTitle(event.target.value);
         } else if (event.target.id === 'txt') {
@@ -15,7 +23,7 @@ export default function DiaryForm({ uid }) {
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(title, text);
         addDocument({

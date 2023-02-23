@@ -2,13 +2,14 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import DragCont from '../DragContainer/DragCont';
 import * as S from "./diaryForm.style";
+import { PropsType } from './DiaryForm';
 
 export default function DiaryFormView({
     title,
     text,
     handleData,
     handleSubmit,
-}) {
+}: PropsType) {
     const dispatch = useDispatch();
 
     return (

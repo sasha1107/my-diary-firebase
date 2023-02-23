@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from "../Modal/Modal";
 import icon from '../../img/MyComputer.png'
-import *  as S from "./nav.style.js"
+import *  as S from "./nav.style"
 
 export default function NavView({
         logout,

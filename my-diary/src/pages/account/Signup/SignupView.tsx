@@ -1,6 +1,7 @@
 import React from 'react'
 import DragCont from '../../../components/DragContainer/DragCont';
 import * as S from "../shared.style";
+import { PropsType } from './Signup';
 
 export default function SignupView({
     email,
@@ -13,7 +14,7 @@ export default function SignupView({
     handleData,
     handleSubmit,
     isPending
-}) {
+}: PropsType) {
     return (
         <DragCont>
             <S.Form onSubmit={handleSubmit}>
