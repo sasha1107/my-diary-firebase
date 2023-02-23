@@ -1,7 +1,7 @@
 import { useFirestore } from '../../hooks/useFirestore'
-import DragCont from '../../components/DragContainer/DragCont';
+import DragCont from '../DragContainer/DragCont';
 import * as S from "./diaryList.style";
-import Modal from '../../components/Modal/Modal';
+import Modal from '../Modal/Modal';
 import { useState } from 'react';
 
 // diaries는 props 로 전달되기 때문에 원래는 props.diaries 로 접근해야 하지만 비구조화할당을 이용하면 깔끔합니다.
