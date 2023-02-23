@@ -1,28 +1,20 @@
-import styles from './Home.module.css'
-import DiaryForm from '../../components/DiaryForm/DiaryForm'
-import DiaryList from '../../components/DiaryList/DiaryList';
-import { useAuthContext } from '../../hooks/useAuthContext'
-import { useCollection } from '../../hooks/useCollection';
-import IconArea from './IconArea';
 import { useSelector } from 'react-redux';
+import { useCollection } from '../../hooks/useCollection';
+import { useAuthContext } from '../../hooks/useAuthContext'
+import HomeView from './HomeView';
 
 export default function Home() {  
   const { user } = useAuthContext();
   const { documents, error } = useCollection('myDiary',["uid", "==", user.uid]);
   const formStatus = useSelector(state => state.form)
   
+  const props = {
+    formStatus,
+    user,
+    documents,
+    error
+  }
   return (
-    <>
-      <IconArea />
-      <main className={styles.cont}>
-        <aside>
-          {formStatus ? <DiaryForm uid={user.uid}/> : <></>}
-        </aside>
-        <ul className={styles.content_list}>
-        {error && <strong>{error}</strong>}
-        {documents && <DiaryList diaries={documents} />}
-        </ul>
-      </main>
-    </>
+    <HomeView {...props}/>
   )
 }
