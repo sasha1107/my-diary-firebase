@@ -7,8 +7,9 @@ import network from "../../../img/Network.png"
 import computer from "../../../img/Wordpad.png"
 import internet from "../../../img/Internet.png"
 import * as S from "./iconArea.style"
+import { PropsType } from './IconArea';
 
-export default function IconAreaView({ handleUrl, formStatus, audio}) {
+export default function IconAreaView({ handleUrl, formStatus, audio} : PropsType) {
     const dispatch = useDispatch();
 
     return (

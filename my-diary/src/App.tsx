@@ -1,3 +1,4 @@
+import React from "react";
 import { useAuthContext } from './hooks/useAuthContext';
 import { Provider } from 'react-redux';
 import { GlobalStyle } from './app.style';
@@ -8,6 +9,7 @@ import Router from './routes/Router';
 function App() {
 
   const { isAuthReady, user } = useAuthContext();
+  console.log(isAuthReady)
 
   return (
     <div className="App">

@@ -6,7 +6,7 @@ import styles from './Home.module.css'
 
 export default function HomeView({
     formStatus,
-    user,
+    userUid,
     documents,
     error
 }) {
@@ -15,7 +15,7 @@ export default function HomeView({
             <IconArea />
             <main className={styles.cont}>
                 <aside>
-                {formStatus ? <DiaryForm uid={user.uid}/> : <></>}
+                {formStatus ? <DiaryForm uid={userUid}/> : <></>}
                 </aside>
                 <ul className={styles.content_list}>
                 {error && <strong>{error}</strong>}

@@ -7,4 +7,5 @@ const initialState = {
     exit: false,
     diaryList: 0,
 }
+
 export const store = createStore(reducer, initialState)
