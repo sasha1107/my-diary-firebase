@@ -13,7 +13,7 @@ export const useLogin = () => {
     // setInterval(() => {
     //     console.log(appAuth.currentUser);
     // }, 3000)
-    const login = (email, password) => {
+    const login = (email: string, password: string) => {
         setError(null);
         setIsPending(true);
 

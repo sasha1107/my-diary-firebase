@@ -6,7 +6,7 @@ import HomeView from './HomeView';
 import { StateType } from "../../types/state.type";
 import { DiaryType } from "../../types/diary.type";
 
-interface PropsType {
+export interface PropsType {
   formStatus: boolean;
   userUid: string;
   documents: DiaryType[] | null;

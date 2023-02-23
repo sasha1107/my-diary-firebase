@@ -6,6 +6,7 @@ import shutdown from "../../img/ShutDown.png"
 import info from "../../img/Info.png"
 import diary from "../../img/Wordpad.png"
 import * as S from "./footer.style";
+import { PropsType } from './Footer';
 
 export default function FooterView({
     menuRef, 
@@ -19,7 +20,7 @@ export default function FooterView({
     SetIsCloseModalOpen,
     handleMenu,
     handlelink
-}) {
+}: PropsType) {
     const dispatch = useDispatch();
 
     return (
@@ -45,12 +46,13 @@ export default function FooterView({
             </S.TabOl>
             <S.MenuList
                 ref={menuRef}
-                onMouseLeave={(e)=> {
-                    if (e.target.tagName === "LI"){
-                        e.target.parentElement.style.display = "none"; 
+                onMouseLeave={(e) => {
+                    const target = e.target as HTMLElement;
+                    if (target.tagName === "LI" && target.parentElement){
+                        target.parentElement.style.display = "none"; 
                     }
-                    else if (e.target.tagName === "OL"){
-                        e.target.style.display = "none"; 
+                    else if (target.tagName === "OL"){
+                        target.style.display = "none"; 
                     }
                 }}
             >
@@ -101,7 +103,7 @@ export default function FooterView({
         <S.InfoTable>
             <thead>
                 <tr>
-                    <th colSpan="2">
+                    <th colSpan={2}>
                     프론트엔드
                     </th>
                     <th>서버, 배포</th>

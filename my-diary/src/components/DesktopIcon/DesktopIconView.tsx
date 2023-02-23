@@ -1,8 +1,9 @@
 import React from 'react'
 import DragCont from '../DragContainer/DragCont'
 import * as S from "./desktopIcon.style"
+import { PropsType } from './DesktopIcon'
 
-    export default function DesktopIconView({ func, src, txt, handleDbClick }) {
+    export default function DesktopIconView({ func, src, txt, handleDbClick } : PropsType) {
     return (
         <DragCont>
             {/* 실행할 함수 func까지 전달 받았다면 실행할 부분 */}

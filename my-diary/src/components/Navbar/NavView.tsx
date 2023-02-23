@@ -2,6 +2,7 @@ import React from 'react'
 import Modal from "../Modal/Modal";
 import icon from '../../img/MyComputer.png'
 import *  as S from "./nav.style"
+import { PropsType } from './Nav';
 
 export default function NavView({
         logout,
@@ -9,7 +10,7 @@ export default function NavView({
         msg,
         isOpen,
         setIsOpen
-    }) {
+    }: PropsType) {
     return (
         <>
         <S.NavCont>

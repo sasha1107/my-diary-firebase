@@ -2,7 +2,18 @@ import React from 'react'
 import * as S from "./modal.style"
 import ReactDOM from "react-dom";
 
-export default function Modal({ open, onClose, onFunc, tit, msg, btn1, btn2, children }) {
+interface ModalProps {
+    open: boolean;
+    onClose: () => void;
+    onFunc?: () => void;
+    tit: string;
+    msg: string;
+    btn1: string;
+    btn2?: string;
+    children?: React.ReactChild;
+
+}
+export default function Modal({ open, onClose, onFunc, tit, msg, btn1, btn2, children } : ModalProps) {
     if (!open) return null;
 
     return ReactDOM.createPortal(
@@ -35,6 +46,6 @@ export default function Modal({ open, onClose, onFunc, tit, msg, btn1, btn2, chi
                 </S.ModalBody>
             </S.ModalCont>
         </>,
-        document.getElementById("modal")
+        document.getElementById("modal") as HTMLElement
     )
 }

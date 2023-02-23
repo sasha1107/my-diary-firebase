@@ -9,7 +9,7 @@ import Router from './routes/Router';
 function App() {
 
   const { isAuthReady, user } = useAuthContext();
-  console.log(isAuthReady)
+  // console.log(isAuthReady) => true/false
 
   return (
     <div className="App">

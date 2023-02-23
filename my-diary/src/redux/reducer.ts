@@ -1,4 +1,10 @@
-export function reducer(state, action) {
+import { StateType } from "../types/state.type";
+
+interface Action {
+    type: string;
+}
+
+export function reducer(state: StateType, action: Action): StateType {
     if (action.type === 'toggleForm'){
         return {
             ...state, form: !state.form
