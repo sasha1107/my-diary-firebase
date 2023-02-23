@@ -10,7 +10,7 @@ Window 95를 테마로 한 웹 다이어리 서비스
 <table>
       <thead align="center">
         <tr>
-          <th colspan="3" style="text-align:center;"><span style="font-size:16px;">프론트엔드</span></th>
+          <th colspan="4" style="text-align:center;"><span style="font-size:16px;">프론트엔드</span></th>
           <th style="text-align:center;"><span style="font-size:16px">서버, 배포</span></th>
           <th style="text-align:center;"><span style="font-size:16px;">디자인</span></th>
         </tr>
@@ -23,7 +23,12 @@ Window 95를 테마로 한 웹 다이어리 서비스
             <code>React</code>
           </td>
           <td align="center" style="text-align:center;">
-            <a href="https://ko.redux.js.org/" target="_blank"><img style="margin: 10px" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png" alt="React" height="50" /></a>
+            <a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566913457/noticon/eh4d0dnic4n1neth3fui.png" alt="TypeScript" height="50" /></a>
+            <br>
+            <code>TypeScript</code>
+          </td>
+          <td align="center" style="text-align:center;">
+            <a href="https://ko.redux.js.org/" target="_blank"><img style="margin: 10px" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png" alt="Redux" height="50" /></a>
             <br>
             <code>Redux</code>
           </td>
