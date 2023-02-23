@@ -1,5 +1,5 @@
 import { useFirestore } from '../../hooks/useFirestore'
-import DragCont from '../../components/DragCont';
+import DragCont from '../../components/DragContainer/DragCont';
 import * as S from "./diaryList.style";
 import Modal from '../../components/Modal/Modal';
 import { useState } from 'react';

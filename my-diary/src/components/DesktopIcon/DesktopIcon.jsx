@@ -1,5 +1,5 @@
 import React from 'react'
-import DragCont from '../DragCont'
+import DragCont from '../DragContainer/DragCont'
 import * as S from "./desktopIcon.style"
 
 export default function DesktopIcon(props) {

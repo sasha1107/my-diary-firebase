@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSignup } from '../../hooks/useSignup'
 import * as S from "./shared.style";
-import DragCont from '../../components/DragCont';
+import DragCont from '../../components/DragContainer/DragCont';
 
 export default function Signup() {
 

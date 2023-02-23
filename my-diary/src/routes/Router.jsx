@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
-import Nav from '../components/Nav'
+import Nav from '../components/Navbar/Nav'
 import Home from '../pages/home/Home'
 import Login from '../pages/account/Login'
 import Signup from '../pages/account/Signup'
 import Off from '../pages/etc/Off'
-import Footer from '../components/Footer'
+import Footer from '../components/Footer/Footer'
 export default function Router() {
     const { isAuthReady, user } = useAuthContext();
 

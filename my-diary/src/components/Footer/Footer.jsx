@@ -2,11 +2,11 @@ import React from 'react'
 import * as S from "./footer.style";
 import Clock from "react-live-clock";
 import { useRef, useState } from 'react';
-import shutdown from "../img/ShutDown.png"
-import info from "../img/Info.png"
-import diary from "../img/Wordpad.png"
-import { useAuthContext } from '../hooks/useAuthContext';
-import Modal from './Modal/Modal';
+import shutdown from "../../img/ShutDown.png"
+import info from "../../img/Info.png"
+import diary from "../../img/Wordpad.png"
+import { useAuthContext } from '../../hooks/useAuthContext';
+import Modal from '../Modal/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function Footer() {
@@ -22,6 +22,9 @@ export default function Footer() {
 
     // exit 탭 디스플레이 상태
     const exitStatus = useSelector(state => state.exit)
+
+    // 일기 목록 개수
+    // const diaryCount = useSelector(state => state.diaryList);
 
     const { user, isAuthReady } = useAuthContext();
     const [isOpen, setIsOpen] = useState(false);
@@ -55,9 +58,9 @@ export default function Footer() {
                 {infoStatus && user ?
                 <li>정보</li>
                 : <></>}
-                {/* {(diaryList !== 0) ? 
+                {/* {(diaryCount !== 0) ? 
                 <li>일기 목록
-                    <span>{diaryList.toString()}</span>
+                    <span>{diaryCount}</span>
                 </li>
                 :<></>
                 } */}

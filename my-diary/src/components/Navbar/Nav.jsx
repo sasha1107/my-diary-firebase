@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useLogout } from "../hooks/useLogout"
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useRandomMsg } from "../hooks/useRandomMsg";
-import Modal from "./Modal/Modal";
-import icon from '../img/MyComputer.png'
+import { useLogout } from "../../hooks/useLogout"
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useRandomMsg } from "../../hooks/useRandomMsg";
+import Modal from "../Modal/Modal";
+import icon from '../../img/MyComputer.png'
 import *  as S from "./nav.style.js"
 
 export default function Nav() {

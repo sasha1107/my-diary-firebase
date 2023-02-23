@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useLogin } from '../../hooks/useLogin';
 import * as S from "./shared.style";
-import DragCont from '../../components/DragCont';
+import DragCont from '../../components/DragContainer/DragCont';
 
 export default function Login() {
 

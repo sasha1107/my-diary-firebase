@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
 import * as S from "./diaryForm.style";
-import DragCont from '../../components/DragCont';
+import DragCont from '../../components/DragContainer/DragCont';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function DiaryForm({ uid }) {
