@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSignup } from '../../../hooks/useSignup'
-import * as S from "../shared.style";
-import DragCont from '../../../components/DragContainer/DragCont';
+import SignupView from './SignupView';
 
 export default function Signup() {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
@@ -28,7 +26,6 @@ export default function Signup() {
   }
   const handleSubmit = (e) => {
     e.preventDefault(); // 새로고침 막기
-    // console.log(email, password,displayName);
     signup(email, password,displayName)
   }
   
@@ -49,28 +46,19 @@ export default function Signup() {
     }
   }, [error])
 
+  const props = {
+    email,
+    password,
+    displayName,
+    emailErrMsg,
+    pwErrMsg,
+    emailRef,
+    pwRef,
+    handleData,
+    handleSubmit
+  }
+
   return (
-    <DragCont>
-    <S.Form onSubmit={handleSubmit}>
-      <fieldset>
-        <S.FormTit>Signup</S.FormTit>
-        <S.FormContent>
-        <S.InpLabel htmlFor='myEmail'>Email :</S.InpLabel>
-        <S.Inp type="email" id="myEmail" required value={email} ref={emailRef} onChange={handleData}/>
-        <S.ErrMsg>{emailErrMsg}</S.ErrMsg>
-
-        <S.InpLabel htmlFor='myPassWord'>Password :</S.InpLabel>
-        <S.Inp type="password" id="myPassWord" required value={password} ref={pwRef} onChange={handleData}/>
-        <S.ErrMsg>{pwErrMsg}</S.ErrMsg>
-
-        <S.InpLabel htmlFor='myNickname'>Nickname :</S.InpLabel>
-        <S.Inp type="text" id="myNickname" required value={displayName} onChange={handleData}/>
-
-        <S.SubmitBtn>SIGNUP</S.SubmitBtn>
-        </S.FormContent>
-      </fieldset>
-    </S.Form>
-    </DragCont>
-
+    <SignupView {...props}/>
   )
 }
