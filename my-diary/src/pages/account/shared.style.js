@@ -76,6 +76,7 @@ const SubmitBtn = styled.button`
         box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E, inset -4px -4px 0px #B1B1B1;
     }
 `
+
 export {
     Form,
     FormTit,
@@ -83,5 +84,5 @@ export {
     InpLabel,
     Inp,
     ErrMsg,
-    SubmitBtn
+    SubmitBtn,
 }

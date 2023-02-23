@@ -1,26 +1,20 @@
 import React from 'react'
-import DragCont from '../DragCont'
-import * as S from "./desktopIcon.style"
+import DesktopIconView from './DesktopIconView';
 
-export default function DesktopIcon(props) {
+export default function DesktopIcon({func, src, txt}) {
     const handleDbClick = (func, e) => {
-        // console.log(e.detail);
+        // 더블클릭 했다면
         if (e.detail === 2) func();
-    }; 
+    };
+
+    const props = {
+        func,
+        src,
+        txt,
+        handleDbClick
+    }
 
     return (
-        <DragCont >
-            {props.func ? 
-                <S.Container onClick={(e) => handleDbClick(props.func, e)}>
-                <S.Icon src={props.src} alt=''/>
-                <S.IconTxt>{props.txt}</S.IconTxt>
-                </S.Container>
-            : 
-            <S.Container>
-                <S.Icon src={props.src} alt=''/>
-                <S.IconTxt>{props.txt}</S.IconTxt>
-            </S.Container>
-            }
-        </DragCont>
+        <DesktopIconView {...props}/>
     )
 }

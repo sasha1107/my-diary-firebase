@@ -1,17 +1,15 @@
-import { useState } from "react";
-import { useLogout } from "../hooks/useLogout"
-import { useAuthContext } from "../hooks/useAuthContext";
-import { useRandomMsg } from "../hooks/useRandomMsg";
-import Modal from "./Modal/Modal";
-import icon from '../img/MyComputer.png'
+import React from 'react'
+import Modal from "../Modal/Modal";
+import icon from '../../img/MyComputer.png'
 import *  as S from "./nav.style.js"
 
-export default function Nav() {
-    const { logout } = useLogout();
-    const { user } = useAuthContext();
-    const msg = useRandomMsg();
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function NavView({
+        logout,
+        user,
+        msg,
+        isOpen,
+        setIsOpen
+    }) {
     return (
         <>
         <S.NavCont>

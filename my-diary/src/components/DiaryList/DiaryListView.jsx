@@ -1,15 +1,13 @@
-import { useFirestore } from '../../hooks/useFirestore'
-import DragCont from '../../components/DragCont';
+import React from 'react'
+import DragCont from '../DragContainer/DragCont';
+import Modal from '../Modal/Modal';
 import * as S from "./diaryList.style";
-import Modal from '../../components/Modal/Modal';
-import { useState } from 'react';
 
-// diaries는 props 로 전달되기 때문에 원래는 props.diaries 로 접근해야 하지만 비구조화할당을 이용하면 깔끔합니다.
-
-export default function DiaryList({ diaries }) {
-    const {deleteDocument} = useFirestore("myDiary");
-    const [isOpen, setIsOpen] = useState(false);
-
+export default function DiaryListView({
+    deleteDocument,
+    isOpen,
+    setIsOpen,
+    diaries }) {
     return (
         <>
             {/* jsx를 바로 반영하기 위해 map을 사용하겠습니다. map은 새로운 배열을 반환하는 순환문입니다.
@@ -25,7 +23,6 @@ export default function DiaryList({ diaries }) {
                     <S.DiaryLi>
                         <S.LiHeader>
                         <S.DiaryTit>{item.title}</S.DiaryTit>
-                        {/* <S.CloseBtn onClick={() => deleteDocument(item.id)}>x</S.CloseBtn> */}
                         <S.CloseBtn onClick={() => setIsOpen(true)}>x</S.CloseBtn>
                         <Modal
                             open={isOpen}

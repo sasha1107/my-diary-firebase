@@ -1,48 +1,26 @@
 import React from 'react'
-import * as S from "./footer.style";
+import { useDispatch } from 'react-redux';
 import Clock from "react-live-clock";
-import { useRef, useState } from 'react';
-import shutdown from "../img/ShutDown.png"
-import info from "../img/Info.png"
-import diary from "../img/Wordpad.png"
-import { useAuthContext } from '../hooks/useAuthContext';
-import Modal from './Modal/Modal';
-import { useSelector, useDispatch } from 'react-redux';
+import Modal from '../Modal/Modal';
+import shutdown from "../../img/ShutDown.png"
+import info from "../../img/Info.png"
+import diary from "../../img/Wordpad.png"
+import * as S from "./footer.style";
 
-export default function Footer() {
-    const menuRef = useRef(null);
-
+export default function FooterView({
+    menuRef, 
+    formStatus,
+    exitStatus,
+    infoStatus,
+    user,
+    isInfoModalOpen,
+    setIsInfoMoalOpen,
+    isCloseModalOpen,
+    SetIsCloseModalOpen,
+    handleMenu,
+    handlelink
+}) {
     const dispatch = useDispatch();
-
-    // 일기 쓰기 탭 디스플레이 상태
-    const formStatus = useSelector(state => state.form);
-
-    // 정보 탭 디스플레이 상태
-    const infoStatus = useSelector(state => state.info);
-
-    // exit 탭 디스플레이 상태
-    const exitStatus = useSelector(state => state.exit)
-
-    const { user, isAuthReady } = useAuthContext();
-    const [isOpen, setIsOpen] = useState(false);
-    const [offModal, setOffModal] = useState(false);
-
-    const handleMenu = (e) => {
-        // console.log(menuRef.current.style);
-        if (!menuRef.current.style.display){
-            menuRef.current.style.display = "flex";
-        } 
-        else if (menuRef.current.style.display === "flex"){
-            menuRef.current.style.display = "none";
-        }
-        else if (menuRef.current.style.display === "none") {
-            menuRef.current.style.display = "flex";
-        }
-    }
-    const handlelink = () => {
-        const link = "https://www.github.com/sasha1107/my-diary-firebase";
-        window.open(link, '_blank');
-} 
 
     return (
         <>
@@ -55,9 +33,9 @@ export default function Footer() {
                 {infoStatus && user ?
                 <li>정보</li>
                 : <></>}
-                {/* {(diaryList !== 0) ? 
+                {/* {(diaryCount !== 0) ? 
                 <li>일기 목록
-                    <span>{diaryList.toString()}</span>
+                    <span>{diaryCount}</span>
                 </li>
                 :<></>
                 } */}
@@ -88,14 +66,14 @@ export default function Footer() {
                 </li>
                 <li onClick={() => {
                     if (!infoStatus) {dispatch({type: "toggleInfo"})}
-                    setIsOpen(true);
+                    setIsInfoMoalOpen(true);
                 }}>
                     <img src={info} alt="" width="32px"/>
                     <u>정</u>보
                 </li>
                 <li onClick={() => {
                     dispatch({type: "toggleExit"});
-                    setOffModal(true);
+                    SetIsCloseModalOpen(true);
                 }}>
                     <img src={shutdown} alt="" width="32px"/>
                     <u>비</u>밀일기 닫기
@@ -110,9 +88,9 @@ export default function Footer() {
             </S.ClockCont>
         </S.FooterCont>
         <Modal
-        open={isOpen}
+        open={isInfoModalOpen}
             onClose={() => {
-                setIsOpen(false);
+                setIsInfoMoalOpen(false);
                 dispatch({type: "toggleInfo"});
             }}
             tit="정보"
@@ -151,9 +129,9 @@ export default function Footer() {
         </S.InfoTable>
         </Modal>
         <Modal
-        open={offModal}
+            open={isCloseModalOpen}
             onClose={() => {
-                setOffModal(false);
+                SetIsCloseModalOpen(false);
                 dispatch({type: "toggleExit"});
             }}
             tit="Processing..."
@@ -177,7 +155,6 @@ export default function Footer() {
                     <li>1</li>
                 </ol>
             </S.StatusBar>
-
         </Modal>
         </>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Footer/Footer'
 import * as S from "./loading.style"
 
 export default function Loading() {

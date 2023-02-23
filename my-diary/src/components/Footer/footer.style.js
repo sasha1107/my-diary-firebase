@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import startIcon from "../img/Off/On=Off.png";
-import startHoverIcon from "../img/Off/On=On.png";
-import GitHubIcon from "../img/github.png";
+import startIcon from "../../img/Off/On=Off.png";
+import startHoverIcon from "../../img/Off/On=On.png";
+import GitHubIcon from "../../img/github.png";
 
 const FooterCont = styled.footer`
     width: 100vw;
