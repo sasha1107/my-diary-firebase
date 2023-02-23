@@ -3,13 +3,14 @@ import IconArea from './IconArea/IconArea';
 import DiaryForm from '../../components/DiaryForm/DiaryForm'
 import DiaryList from '../../components/DiaryList/DiaryList';
 import styles from './Home.module.css'
+import { PropsType } from './Home';
 
 export default function HomeView({
     formStatus,
     userUid,
     documents,
     error
-}) {
+}: PropsType) {
     return (
         <>
             <IconArea />

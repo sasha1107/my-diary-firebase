@@ -2,12 +2,13 @@ import React from 'react'
 import DragCont from '../DragContainer/DragCont';
 import Modal from '../Modal/Modal';
 import * as S from "./diaryList.style";
+import { PropsType } from './DiaryList';
 
 export default function DiaryListView({
     deleteDocument,
     isOpen,
     setIsOpen,
-    diaries }) {
+    diaries }: PropsType) {
     return (
         <>
             {/* jsx를 바로 반영하기 위해 map을 사용하겠습니다. map은 새로운 배열을 반환하는 순환문입니다.
