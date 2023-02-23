@@ -1,18 +1,11 @@
 import React from 'react'
-import * as S from "./footer.style";
-import Clock from "react-live-clock";
 import { useRef, useState } from 'react';
-import shutdown from "../../img/ShutDown.png"
-import info from "../../img/Info.png"
-import diary from "../../img/Wordpad.png"
+import { useSelector } from 'react-redux';
 import { useAuthContext } from '../../hooks/useAuthContext';
-import Modal from '../Modal/Modal';
-import { useSelector, useDispatch } from 'react-redux';
+import FooterView from './FooterView';
 
 export default function Footer() {
     const menuRef = useRef(null);
-
-    const dispatch = useDispatch();
 
     // 일기 쓰기 탭 디스플레이 상태
     const formStatus = useSelector(state => state.form);
@@ -23,15 +16,16 @@ export default function Footer() {
     // exit 탭 디스플레이 상태
     const exitStatus = useSelector(state => state.exit)
 
-    // 일기 목록 개수
-    // const diaryCount = useSelector(state => state.diaryList);
+    const { user } = useAuthContext();
 
-    const { user, isAuthReady } = useAuthContext();
-    const [isOpen, setIsOpen] = useState(false);
-    const [offModal, setOffModal] = useState(false);
+    // '정보' 모달 디스플레이 상태
+    const [isInfoModalOpen, setIsInfoMoalOpen] = useState(false);
 
+    // '비밀일기 닫기' 모달 디스플레이 상태
+    const [isCloseModalOpen, SetIsCloseModalOpen] = useState(false);
+
+    // 시작 표시줄 디스플레이 여부 변경 함수
     const handleMenu = (e) => {
-        // console.log(menuRef.current.style);
         if (!menuRef.current.style.display){
             menuRef.current.style.display = "flex";
         } 
@@ -42,146 +36,27 @@ export default function Footer() {
             menuRef.current.style.display = "flex";
         }
     }
+
     const handlelink = () => {
         const link = "https://www.github.com/sasha1107/my-diary-firebase";
         window.open(link, '_blank');
-} 
+    } 
+
+    const props = {
+        menuRef, 
+        formStatus,
+        exitStatus,
+        infoStatus,
+        user,
+        isInfoModalOpen,
+        setIsInfoMoalOpen,
+        isCloseModalOpen,
+        SetIsCloseModalOpen,
+        handleMenu,
+        handlelink
+    }
 
     return (
-        <>
-        <S.FooterCont>
-            <S.MenuBtn onClick={handleMenu}/>
-            <S.TabOl>
-                {formStatus && user ? 
-                <li>일기 쓰기</li>
-                : <></>}
-                {infoStatus && user ?
-                <li>정보</li>
-                : <></>}
-                {/* {(diaryCount !== 0) ? 
-                <li>일기 목록
-                    <span>{diaryCount}</span>
-                </li>
-                :<></>
-                } */}
-                {exitStatus && user ?
-                <li>비밀일기 닫기</li>
-                : <></>}
-            </S.TabOl>
-            <S.MenuList
-                ref={menuRef}
-                onMouseLeave={(e)=> {
-                    if (e.target.tagName === "LI"){
-                        e.target.parentElement.style.display = "none"; 
-                    }
-                    else if (e.target.tagName === "OL"){
-                        e.target.style.display = "none"; 
-                    }
-                }}
-            >
-                <li
-                    onClick={() => 
-                    {
-                        if (!formStatus) {
-                            dispatch({type: "toggleForm"})
-                        }
-                }}>
-                    <img src={diary} alt="" width="32px"/>
-                    <u>일</u>기 쓰기
-                </li>
-                <li onClick={() => {
-                    if (!infoStatus) {dispatch({type: "toggleInfo"})}
-                    setIsOpen(true);
-                }}>
-                    <img src={info} alt="" width="32px"/>
-                    <u>정</u>보
-                </li>
-                <li onClick={() => {
-                    dispatch({type: "toggleExit"});
-                    setOffModal(true);
-                }}>
-                    <img src={shutdown} alt="" width="32px"/>
-                    <u>비</u>밀일기 닫기
-                </li>
-            </S.MenuList>
-            <S.ClockCont>
-                <S.GitHubBtn onClick={handlelink}/>
-                <Clock
-                    format={'h:mm A'}
-                    ticking={true}
-                />
-            </S.ClockCont>
-        </S.FooterCont>
-        <Modal
-        open={isOpen}
-            onClose={() => {
-                setIsOpen(false);
-                dispatch({type: "toggleInfo"});
-            }}
-            tit="정보"
-            msg="리액트와 파이어베이스로 구현한 웹 다이어리 서비스"
-            btn1="닫기"
-        >
-        {/* Modal Childrend으로 전달 */}
-        <S.InfoTable>
-            <thead>
-                <tr>
-                    <th colSpan="2">
-                    프론트엔드
-                    </th>
-                    <th>서버, 배포</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1579667701/noticon/basd2y5bygpkqjiixuqy.png" alt="React" height="50" />
-                        <br/>
-                        React
-                    </td>
-                    <td>
-                        <img src="https://profilinator.rishav.dev/skills-assets/styled-components.png" alt="Styled Components" height="50" />
-                        <br/>
-                        styled-components
-                    </td>
-                    <td>
-                        <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566913958/noticon/uoqjdixts4lwsgtsa1pd.png" alt="Firebase" height="50" />
-                        <br/>
-                        Firebase
-                    </td>
-                </tr>
-            </tbody>
-        </S.InfoTable>
-        </Modal>
-        <Modal
-        open={offModal}
-            onClose={() => {
-                setOffModal(false);
-                dispatch({type: "toggleExit"});
-            }}
-            tit="Processing..."
-            msg="다 기다려도 안꺼집니다 ..."
-            btn1="취소"
-        >
-            <S.StatusBar>
-                <ol>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ol>
-            </S.StatusBar>
-
-        </Modal>
-        </>
+        <FooterView {...props}/>
     )
 }
