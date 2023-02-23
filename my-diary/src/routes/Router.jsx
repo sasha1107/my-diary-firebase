@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 import Nav from '../components/Navbar/Nav'
 import Home from '../pages/home/Home'
 import Login from '../pages/account/Login/Login'
-import Signup from '../pages/account/Signup'
+import Signup from '../pages/account/Signup/Signup'
 import Off from '../pages/etc/Off'
 import Footer from '../components/Footer/Footer'
 export default function Router() {
