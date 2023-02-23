@@ -55,7 +55,8 @@ export default function Signup() {
     emailRef,
     pwRef,
     handleData,
-    handleSubmit
+    handleSubmit,
+    isPending
   }
 
   return (

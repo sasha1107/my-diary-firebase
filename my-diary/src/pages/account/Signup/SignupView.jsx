@@ -11,7 +11,8 @@ export default function SignupView({
     emailRef,
     pwRef,
     handleData,
-    handleSubmit
+    handleSubmit,
+    isPending
 }) {
     return (
         <DragCont>
@@ -29,7 +30,7 @@ export default function SignupView({
 
                 <S.InpLabel htmlFor='myNickname'>Nickname :</S.InpLabel>
                 <S.Inp type="text" id="myNickname" required value={displayName} onChange={handleData}/>
-
+                {isPending && <S.ErrMsg>회원가입 중입니다. . .</S.ErrMsg>}
                 <S.SubmitBtn>SIGNUP</S.SubmitBtn>
                 </S.FormContent>
             </fieldset>
