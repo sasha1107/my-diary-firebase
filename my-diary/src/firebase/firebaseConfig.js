@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, Timestamp } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-
+import { getDatabase } from "firebase/database"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,4 +29,7 @@ const appAuth = getAuth();
 // timestamp 초기화
 const timeStamp = Timestamp;
 
-export { appFireStore, appAuth, timeStamp }
+//  Initialize Realtime Database and get a reference to the service
+const database = getDatabase(app);
+
+export { appFireStore, appAuth, timeStamp, database }

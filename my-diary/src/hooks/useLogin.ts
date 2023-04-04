@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { appAuth } from '../firebase/config'
+import { appAuth } from '../firebase/firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useAuthContext } from "./useAuthContext";
 

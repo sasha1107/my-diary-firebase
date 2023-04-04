@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import { useCollection } from '../../hooks/useCollection';
+import { useCollection } from '../../hooks/useCollection.js';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import HomeView from './HomeView';
 import { StateType } from "../../types/state.type";

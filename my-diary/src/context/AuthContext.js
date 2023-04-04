@@ -1,5 +1,5 @@
 import { createContext, useEffect, useReducer } from 'react';
-import { appAuth } from '../firebase/config';
+import { appAuth } from '../firebase/firebaseConfig';
 
 // context 객체를 생성합니다.
 const AuthContext = createContext();

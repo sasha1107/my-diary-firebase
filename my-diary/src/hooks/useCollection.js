@@ -1,6 +1,6 @@
 import { onSnapshot, collection, query, where, orderBy } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { appFireStore } from "../firebase/config";
+import { appFireStore } from "../firebase/firebaseConfig";
 
 export const useCollection = (transaction, myQuery) => {
 
