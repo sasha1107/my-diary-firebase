@@ -4,9 +4,11 @@ import DiaryForm from '../../components/DiaryForm/DiaryForm'
 import DiaryList from '../../components/DiaryList/DiaryList';
 import styles from './Home.module.css'
 import { PropsType } from './Home';
+import Calculator from '../../components/Calculator/Calculator';
 
 export default function HomeView({
     formStatus,
+    calcStatus,
     userUid,
     documents,
     error
@@ -18,6 +20,7 @@ export default function HomeView({
                 <aside>
                 {formStatus ? <DiaryForm uid={userUid}/> : <></>}
                 </aside>
+                {calcStatus && <Calculator/>}
                 <ul className={styles.content_list}>
                 {error && <strong>{error}</strong>}
                 {documents && <DiaryList diaries={documents} />}

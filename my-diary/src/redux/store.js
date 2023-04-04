@@ -5,6 +5,7 @@ const initialState = {
     form: true,
     info: false,
     exit: false,
+    calc: false,
     diaryList: 0,
 }
 

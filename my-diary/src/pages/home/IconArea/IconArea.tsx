@@ -7,6 +7,7 @@ import { StateType } from '../../../types/state.type';
 export interface PropsType {
     handleUrl: (URL: string) => void;
     formStatus: boolean;
+    calcStatus: boolean;
     audio: HTMLAudioElement;
 }
 
@@ -18,11 +19,15 @@ export default function IconArea() {
     // 일기 쓰기 탭 디스플레이 상태
     const formStatus = useSelector((state: StateType) => state.form);
 
+    // 계산기 탭 디스플레이 상태 
+    const calcStatus = useSelector((state: StateType) => state.calc);
+    
     const audio = new Audio(binAudio);
 
     const props: PropsType = {
         handleUrl,
         formStatus,
+        calcStatus,
         audio
     }
 

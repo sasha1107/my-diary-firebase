@@ -1,6 +1,6 @@
 import { StateType } from "../types/state.type";
 
-interface Action {
+export interface Action {
     type: string;
 }
 
@@ -23,6 +23,11 @@ export function reducer(state: StateType, action: Action): StateType {
     else if (action.type === 'countDiary'){
         return {
             ...state, diaryList: state.diaryList
+        }
+    }
+    else if (action.type === 'toggleCalc'){
+        return {
+            ...state, calc: !state.calc
         }
     }
     return state;

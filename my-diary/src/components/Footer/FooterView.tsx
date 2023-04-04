@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal';
 import shutdown from "../../img/ShutDown.png"
 import info from "../../img/Info.png"
 import diary from "../../img/Wordpad.png"
+import calculator from "../../img/Calculator.png"
 import * as S from "./footer.style";
 import { PropsType } from './Footer';
 
@@ -13,6 +14,7 @@ export default function FooterView({
     formStatus,
     exitStatus,
     infoStatus,
+    calcStatus,
     user,
     isInfoModalOpen,
     setIsInfoMoalOpen,
@@ -43,6 +45,10 @@ export default function FooterView({
                 {exitStatus && user ?
                 <li>비밀일기 닫기</li>
                 : <></>}
+
+                {calcStatus && user ?
+                <li>계산기</li>
+                : <></>}
             </S.TabOl>
             <S.MenuList
                 ref={menuRef}
@@ -65,6 +71,16 @@ export default function FooterView({
                 }}>
                     <img src={diary} alt="" width="32px"/>
                     <u>일</u>기 쓰기
+                </li>
+                <li
+                    onClick={() => 
+                    {
+                        if (!calcStatus) {
+                            dispatch({type: "toggleCalc"})
+                        }
+                }}>
+                    <img src={calculator} alt="" width="32px"/>
+                    <u>계</u>산기
                 </li>
                 <li onClick={() => {
                     if (!infoStatus) {dispatch({type: "toggleInfo"})}

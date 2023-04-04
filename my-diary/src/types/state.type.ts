@@ -3,4 +3,5 @@ export type StateType = {
     info: boolean;
     exit: boolean;
     diaryList: number;
+    calc: boolean;
 };
