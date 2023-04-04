@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { appAuth } from '../firebase/config'
+import { appAuth } from '../firebase/firebaseConfig'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { useAuthContext } from "./useAuthContext";
 
@@ -10,7 +10,7 @@ export const useSignup = () => {
     const [isPending, setIsPending] = useState(false);
     const { dispatch } = useAuthContext();
 
-    const signup = (email, password, displayName) => {
+    const signup = (email: string, password: string, displayName: string) => {
         setError(null);
         setIsPending(true);
 
@@ -24,7 +24,7 @@ export const useSignup = () => {
                     throw new Error('회원가입에 실패했습니다.');
                 }
 
-                updateProfile(appAuth.currentUser, { displayName })
+                updateProfile(appAuth.currentUser!, { displayName })
                     .then(() => {
                         console.log(user);
                         dispatch({ type: 'login', payload: user });
