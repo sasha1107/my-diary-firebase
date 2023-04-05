@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAuthContext } from '../../hooks/useAuthContext';
@@ -12,6 +12,7 @@ export interface PropsType {
     infoStatus: boolean;
     calcStatus: boolean;
     visitorStatus: boolean;
+    gameStatus: boolean;
     user: object;
     isInfoModalOpen: boolean;
     setIsInfoMoalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,6 +40,9 @@ export default function Footer() {
     // 방명록 탭 디스플레이 상태
     const visitorStatus = useSelector((state: StateType) => state.visitor);
 
+    // 지뢰찾기 탭 디스플레이 상태
+    const gameStatus = useSelector((state: StateType) => state.game);
+
     const { user } = useAuthContext();
 
     // '정보' 모달 디스플레이 상태
@@ -49,39 +53,36 @@ export default function Footer() {
 
     // 시작 표시줄 디스플레이 여부 변경 함수
     const handleMenu = (e: React.MouseEvent<HTMLElement>) => {
-        if (!menuRef.current?.style.display && menuRef.current){
-            menuRef.current.style.display = "flex";
-        } 
-        else if (menuRef.current?.style.display === "flex"){
-            menuRef.current.style.display = "none";
+        if (!menuRef.current?.style.display && menuRef.current) {
+            menuRef.current.style.display = 'flex';
+        } else if (menuRef.current?.style.display === 'flex') {
+            menuRef.current.style.display = 'none';
+        } else if (menuRef.current?.style.display === 'none') {
+            menuRef.current.style.display = 'flex';
         }
-        else if (menuRef.current?.style.display === "none") {
-            menuRef.current.style.display = "flex";
-        }
-    }
+    };
 
     const handlelink = () => {
-        const link = "https://www.github.com/sasha1107/my-diary-firebase";
+        const link = 'https://www.github.com/sasha1107/my-diary-firebase';
         window.open(link, '_blank');
-    } 
+    };
 
     const props = {
-        menuRef, 
+        menuRef,
         formStatus,
         exitStatus,
         infoStatus,
         calcStatus,
         visitorStatus,
+        gameStatus,
         user,
         isInfoModalOpen,
         setIsInfoMoalOpen,
         isCloseModalOpen,
         SetIsCloseModalOpen,
         handleMenu,
-        handlelink
-    }
+        handlelink,
+    };
 
-    return (
-        <FooterView {...props}/>
-    )
+    return <FooterView {...props} />;
 }

@@ -1,4 +1,4 @@
-import { legacy_createStore as createStore} from 'redux'
+import { legacy_createStore as createStore } from 'redux';
 import { reducer } from './reducer';
 
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     exit: false,
     calc: false,
     visitor: false,
+    game: false,
     diaryList: 0,
-}
+};
 
-export const store = createStore(reducer, initialState)
+export const store = createStore(reducer, initialState);

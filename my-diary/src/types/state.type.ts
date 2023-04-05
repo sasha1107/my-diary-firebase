@@ -5,4 +5,5 @@ export type StateType = {
     diaryList: number;
     calc: boolean;
     visitor: boolean;
+    game: boolean;
 };
