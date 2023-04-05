@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import Clock from 'react-live-clock';
 import Modal from '../Modal/Modal';
-import shutdown from '../../img/ShutDown.png';
-import info from '../../img/Info.png';
-import diary from '../../img/Wordpad.png';
-import calculator from '../../img/Calculator.png';
-import printer from '../../img/Printer.png';
-import minesweeper from '../../img/Minesweeper.png';
+import shutdown from 'assets/img/ShutDown.png';
+import info from 'assets/img/Info.png';
+import diary from 'assets/img/Wordpad.png';
+import calculator from 'assets/img/Calculator.png';
+import printer from 'assets/img/Printer.png';
+import minesweeper from 'assets/img/Minesweeper.png';
 
 import * as S from './footer.style';
 import { PropsType } from './Footer';

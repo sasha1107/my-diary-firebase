@@ -1,7 +1,7 @@
-import styled, { keyframes } from "styled-components";
-import startIcon from "../../img/Off/On=Off.png";
-import startHoverIcon from "../../img/Off/On=On.png";
-import GitHubIcon from "../../img/github.png";
+import styled, { keyframes } from 'styled-components';
+import startIcon from 'assets/img/Off/On=Off.png';
+import startHoverIcon from 'assets/img/Off/On=On.png';
+import GitHubIcon from 'assets/img/github.png';
 
 const FooterCont = styled.footer`
     width: 100vw;
@@ -12,7 +12,7 @@ const FooterCont = styled.footer`
     gap: 20px;
     align-items: center;
     padding: 8px;
-`
+`;
 const MenuBtn = styled.button`
     width: 80px;
     height: 34px;
@@ -22,7 +22,7 @@ const MenuBtn = styled.button`
     &:hover {
         background-image: url(${startHoverIcon});
     }
-`
+`;
 const TabOl = styled.ol`
     display: flex;
     gap: 8px;
@@ -30,13 +30,15 @@ const TabOl = styled.ol`
         padding: 9px 18px;
         width: 160px;
         background: var(--color-gray);
-        box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E, inset 4px 4px 0px #B1B1B1;
+        box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #f0f0f0,
+            inset -4px -4px 0px #7e7e7e, inset 4px 4px 0px #b1b1b1;
         &:hover {
-            background: #E3E3E3;
-            box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E, inset -4px -4px 0px #B1B1B1;
+            background: #e3e3e3;
+            box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #f0f0f0,
+                inset 4px 4px 0px #7e7e7e, inset -4px -4px 0px #b1b1b1;
         }
     }
-`
+`;
 
 const MenuList = styled.ol`
     position: fixed;
@@ -51,13 +53,13 @@ const MenuList = styled.ol`
         display: flex;
         /* justify-content: center; */
         align-items: center;
-        &:hover{
+        &:hover {
             background-color: var(--color-primary);
             color: white;
             cursor: pointer;
         }
     }
-`
+`;
 const ClockCont = styled.article`
     display: block;
     position: absolute;
@@ -65,9 +67,9 @@ const ClockCont = styled.article`
     display: flex;
     align-items: center;
     gap: 8px;
-    box-shadow: inset -2px -2px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E;
+    box-shadow: inset -2px -2px 0px #f0f0f0, inset 2px 2px 0px #7e7e7e;
     padding: 4px 12px;
-`
+`;
 
 const GitHubBtn = styled.button`
     width: 24px;
@@ -75,16 +77,15 @@ const GitHubBtn = styled.button`
     background-image: url(${GitHubIcon});
     background-size: contain;
     background-repeat: no-repeat;
-`
+`;
 const InfoTable = styled.table`
     text-align: center;
     thead {
-
     }
     tbody {
-
     }
-    th, td {
+    th,
+    td {
         border: 1px dashed black;
         border-collapse: collapse;
         padding: 8px 16px;
@@ -92,18 +93,18 @@ const InfoTable = styled.table`
     img {
         margin-bottom: 4px;
     }
-`
+`;
 const StatusAni = keyframes`
     to {
         background-color: var(--color-primary);
         color: var(--color-primary);
     }
-`
+`;
 
 const StatusBar = styled.div`
     width: 200px;
     height: 20px;
-    box-shadow: inset -2px -2px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E;
+    box-shadow: inset -2px -2px 0px #f0f0f0, inset 2px 2px 0px #7e7e7e;
     padding: 4px;
     ol {
         width: 100%;
@@ -116,23 +117,48 @@ const StatusBar = styled.div`
             color: var(--color-gray);
             background-color: none;
             animation: ${StatusAni} forwards;
-            &:nth-child(1){ animation-delay: 1s; }
-            &:nth-child(2){ animation-delay: 2s; }
-            &:nth-child(3){ animation-delay: 3s; }
-            &:nth-child(4){ animation-delay: 4s; }
-            &:nth-child(5){ animation-delay: 5s; }
-            &:nth-child(6){ animation-delay: 6s; }
-            &:nth-child(7){ animation-delay: 7s; }
-            &:nth-child(8){ animation-delay: 8s; }
-            &:nth-child(9){ animation-delay: 9s; }
-            &:nth-child(10){ animation-delay: 10s; }
-            &:nth-child(11){ animation-delay: 11s; }
-            &:nth-child(12){ animation-delay: 12s; }
-            &:nth-child(13){ animation-delay: 13s; }
+            &:nth-child(1) {
+                animation-delay: 1s;
+            }
+            &:nth-child(2) {
+                animation-delay: 2s;
+            }
+            &:nth-child(3) {
+                animation-delay: 3s;
+            }
+            &:nth-child(4) {
+                animation-delay: 4s;
+            }
+            &:nth-child(5) {
+                animation-delay: 5s;
+            }
+            &:nth-child(6) {
+                animation-delay: 6s;
+            }
+            &:nth-child(7) {
+                animation-delay: 7s;
+            }
+            &:nth-child(8) {
+                animation-delay: 8s;
+            }
+            &:nth-child(9) {
+                animation-delay: 9s;
+            }
+            &:nth-child(10) {
+                animation-delay: 10s;
+            }
+            &:nth-child(11) {
+                animation-delay: 11s;
+            }
+            &:nth-child(12) {
+                animation-delay: 12s;
+            }
+            &:nth-child(13) {
+                animation-delay: 13s;
+            }
         }
     }
-`
-
+`;
 
 export {
     FooterCont,
@@ -142,5 +168,5 @@ export {
     ClockCont,
     GitHubBtn,
     InfoTable,
-    StatusBar
-}
+    StatusBar,
+};

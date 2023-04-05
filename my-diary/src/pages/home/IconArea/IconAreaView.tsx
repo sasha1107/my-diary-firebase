@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import DesktopIcon from '../../../components/DesktopIcon/DesktopIcon';
-import bin from '../../../img/Bin.png';
-import folder from '../../../img/Folder.png';
-import network from '../../../img/Network.png';
-import computer from '../../../img/Wordpad.png';
-import internet from '../../../img/Internet.png';
-import calculator from '../../../img/Calculator.png';
-import printer from '../../../img/Printer.png';
-import minesweeper from '../../../img/Minesweeper.png';
+import bin from 'assets/img/Bin.png';
+import folder from 'assets/img/Folder.png';
+import network from 'assets/img/Network.png';
+import computer from 'assets/img/Wordpad.png';
+import internet from 'assets/img/Internet.png';
+import calculator from 'assets/img/Calculator.png';
+import printer from 'assets/img/Printer.png';
+import minesweeper from 'assets/img/Minesweeper.png';
 
 import * as S from './iconArea.style';
 import { PropsType } from './IconArea';
