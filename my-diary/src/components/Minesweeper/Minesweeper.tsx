@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { MAX_COLS, MAX_ROWS } from '../../constants';
+import { generateCells, openMultipleCells } from '../../utils/minesweeper';
 import {
     CellType,
     CellState,
     CellValue,
     Face,
 } from '../../types/minesweeper.type';
-import { generateCells, openMultipleCells } from '../../utils/minesweeper';
 import Cell from './Cell';
 import * as S from './minesweeper.style';
-import DragCont from '../DragContainer/DragCont';
-import { useDispatch } from 'react-redux';
-
-interface NumberDisplayProps {
-    value: number;
-}
-
-const NumberDisplay: React.FC<NumberDisplayProps> = ({ value }) => {
-    return (
-        <S.NumDisplay>
-            {value < 0
-                ? `-${Math.abs(value).toString().padStart(2, '0')}`
-                : value.toString().padStart(3, '0')}
-        </S.NumDisplay>
-    );
-};
+import { NumberDisplay } from './NumberDisplay';
 
 export default function Minesweeper() {
     const [cells, setCells] = useState<CellType[][]>(generateCells());
@@ -110,6 +96,7 @@ export default function Minesweeper() {
 
             if (currentCell.value === CellValue.bomb) {
                 setHasLost(true);
+                setLive(false);
                 newCells[rowParam][colParam].red = true;
                 newCells = showAllBombs();
                 setCells(newCells);
@@ -221,31 +208,29 @@ export default function Minesweeper() {
     };
 
     return (
-        <DragCont>
-            <S.Cont>
-                <S.Tit>
-                    지뢰찾기
-                    <S.CloseBtn
-                        onClick={() => {
-                            dispatch({ type: 'toggleGame' });
-                        }}
-                    >
-                        x
-                    </S.CloseBtn>
-                </S.Tit>
-                <S.Body>
-                    <S.Header>
-                        <NumberDisplay value={bombCounter} />
-                        <div className='Face' onClick={handleFaceClick}>
-                            <span role='img' aria-label='face'>
-                                {face}
-                            </span>
-                        </div>
-                        <NumberDisplay value={time} />
-                    </S.Header>
-                    <S.Board className='Body'>{renderCells()}</S.Board>
-                </S.Body>
-            </S.Cont>
-        </DragCont>
+        <S.Cont>
+            <S.Tit>
+                지뢰찾기
+                <S.CloseBtn
+                    onClick={() => {
+                        dispatch({ type: 'toggleGame' });
+                    }}
+                >
+                    x
+                </S.CloseBtn>
+            </S.Tit>
+            <S.Body>
+                <S.Header>
+                    <NumberDisplay value={bombCounter} />
+                    <div className='Face' onClick={handleFaceClick}>
+                        <span role='img' aria-label='face'>
+                            {face}
+                        </span>
+                    </div>
+                    <NumberDisplay value={time} />
+                </S.Header>
+                <S.Board className='Body'>{renderCells()}</S.Board>
+            </S.Body>
+        </S.Cont>
     );
 }

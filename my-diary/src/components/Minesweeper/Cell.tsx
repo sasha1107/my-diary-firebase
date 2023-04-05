@@ -1,6 +1,8 @@
 import React from 'react';
 import { CellState, CellValue } from '../../types/minesweeper.type';
 import { CellCont } from './minesweeper.style';
+import mine from 'assets/img/minesweeper/mine.png';
+import flag from 'assets/img/minesweeper/flag.png';
 
 interface CellProps {
     col: number;
@@ -24,22 +26,14 @@ const Cell: React.FC<CellProps> = ({
     const renderContent = (): React.ReactNode => {
         if (state === CellState.visible) {
             if (value === CellValue.bomb) {
-                return (
-                    <span role='img' aria-label='bomb'>
-                        💣
-                    </span>
-                );
+                return <img src={mine} width={'20px'} />;
             } else if (value === CellValue.none) {
                 return null;
             }
 
             return value;
         } else if (state === CellState.flagged) {
-            return (
-                <span role='img' aria-label='flag'>
-                    🚩
-                </span>
-            );
+            return <img src={flag} width={'20px'} />;
         }
 
         return null;
