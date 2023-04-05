@@ -30,5 +30,10 @@ export function reducer(state: StateType, action: Action): StateType {
             ...state, calc: !state.calc
         }
     }
+    else if (action.type === 'toggleVisitor'){
+        return {
+            ...state, visitor: !state.visitor
+        }
+    }
     return state;
 }

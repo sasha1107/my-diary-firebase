@@ -46,30 +46,39 @@ const VisitorBody = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-sizing: border-box;
 `
 
 const GuestbookEntries = styled.div`
-    height: 25vh;
+    height: 30vh;
     overflow-y: scroll;
     box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E, inset -4px -4px 0px #B1B1B1;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    box-sizing: border-box;
 `
 const MsgItem = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 10px;
+    background: #E3E3E3;
+    box-shadow: inset 1px 1px 0px #262626, inset -1px -1px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E, inset -2px -2px 0px #B1B1B1;
+    &:hover {
+            background: #E3E3E3;
+            
+    }
     >div {
         display: flex;
         flex-direction: column;
+        gap: 4px;
     }
 `
 const Nickname = styled.span`
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #3e3e3e;
 `
 const Message = styled.span`
@@ -84,6 +93,7 @@ const GuestBookForm = styled.form`
     width: 100%;
     display: grid;
     grid-template-columns: 5fr 1fr;
+    gap: 0.4rem;
     > div {
         display: flex;
         flex-direction: column;
@@ -91,13 +101,23 @@ const GuestBookForm = styled.form`
         >div {
             display: grid;
             grid-template-columns: 1fr 3fr;
-            align-items: flex-start;
+            align-items: center;
         }
+    }
+    label {
+        font-size: 0.9rem;
     }
     input, textarea {
         width: 100%;
         height: 100%;
         box-sizing: border-box;
+        box-shadow: inset 1px 1px 0px #262626, inset -1px -1px 0px #F0F0F0, inset 2px 2px 0px #7E7E7E;
+    }
+    input {
+        height: 24px;
+    }
+    textarea {
+        height: 50px;
     }
 `
 const SubmitBtn = styled.button`

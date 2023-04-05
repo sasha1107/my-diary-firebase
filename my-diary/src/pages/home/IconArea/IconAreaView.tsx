@@ -7,6 +7,7 @@ import network from "../../../img/Network.png"
 import computer from "../../../img/Wordpad.png"
 import internet from "../../../img/Internet.png"
 import calculator from "../../../img/Calculator.png"
+import printer from "../../../img/Printer.png"
 import * as S from "./iconArea.style"
 import { PropsType } from './IconArea';
 
@@ -14,6 +15,7 @@ export default function IconAreaView({
     handleUrl,
     formStatus,
     calcStatus,
+    visitorStatus,
     audio
 } : PropsType) {
     const dispatch = useDispatch();
@@ -31,6 +33,12 @@ export default function IconAreaView({
                 txt="계산기"
                 func={() => 
                     { if(!calcStatus) dispatch({type: "toggleCalc"})}}
+            />
+            <DesktopIcon
+                src={printer}
+                txt="방명록"
+                func={() => 
+                    { if(!visitorStatus) dispatch({type: "toggleVisitor"})}}
             />
             <DesktopIcon src={folder} txt="소스코드" func={() => {
                 handleUrl("https://github.com/sasha1107/my-diary-firebase")

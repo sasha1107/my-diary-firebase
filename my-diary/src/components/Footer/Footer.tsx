@@ -11,6 +11,7 @@ export interface PropsType {
     exitStatus: boolean;
     infoStatus: boolean;
     calcStatus: boolean;
+    visitorStatus: boolean;
     user: object;
     isInfoModalOpen: boolean;
     setIsInfoMoalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,6 +35,9 @@ export default function Footer() {
 
     // 계산기 탭 디스플레이 상태
     const calcStatus = useSelector((state: StateType) => state.calc);
+
+    // 방명록 탭 디스플레이 상태
+    const visitorStatus = useSelector((state: StateType) => state.visitor);
 
     const { user } = useAuthContext();
 
@@ -67,6 +71,7 @@ export default function Footer() {
         exitStatus,
         infoStatus,
         calcStatus,
+        visitorStatus,
         user,
         isInfoModalOpen,
         setIsInfoMoalOpen,

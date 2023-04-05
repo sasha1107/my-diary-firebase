@@ -6,6 +6,7 @@ const initialState = {
     info: false,
     exit: false,
     calc: false,
+    visitor: false,
     diaryList: 0,
 }
 

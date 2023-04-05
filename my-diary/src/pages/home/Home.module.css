@@ -1,79 +1,10 @@
 .cont {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    max-width: 960px;
-    margin: 60px auto;
-    padding: 0 30px;
+    gap: 1rem;
+    padding: 30px 30px 30px 120px;
 }
 
-/* .side_menu form {
-    padding-bottom: 40px;
-    background-color: #C3C3C3;
-    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E, inset 4px 4px 0px #B1B1B1;
-} */
-
-.side_menu fieldset {
-    border: none;
-    padding: 0;
-}
-
-.side_menu legend {
-    margin-top: 0;
-    font-size: 1.2em;
-    padding: 4px 0px;
-    color: #fff;
-    text-align: center;
-    border-top: 2px solid #f0f0f0;
-    border-right: 2px solid gray;
-    background-color: #02007F;
-    display: block;
-    width: 100%;
-}
-
-.side_menu input {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    height: 36px;
-    box-sizing: border-box;
-    padding: 8px 6px;
-    color: #777;
-    border: none;
-    background: #FFFFFF;
-box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
-}
-
-.side_menu label {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    margin-bottom: 8px;
-    margin-top: 20px;
-    /* color: #fff; */
-}
-
-.side_menu textarea {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    height: 200px;
-    box-sizing: border-box;
-    padding: 8px 6px;
-    color: #777;
-    border: none;
-    background: #FFFFFF;
-    box-shadow: inset 2px 2px 0px #262626, inset -2px -2px 0px #F0F0F0, inset 4px 4px 0px #7E7E7E;
-}
-
-.side_menu button {
-    margin-top: 30px;
-    float: right;
-    padding: 6px 12px;
-    cursor: pointer;
-    margin-right: 20px;
-    background: #C3C3C3;
-    box-shadow: inset -2px -2px 0px #262626, inset 2px 2px 0px #F0F0F0, inset -4px -4px 0px #7E7E7E;
-}
 
 .content_list {
     margin: 0;

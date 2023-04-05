@@ -1,6 +1,8 @@
 import React from 'react'
-import * as S from "./visitor.style"
+import { useDispatch } from 'react-redux'
 import { PropsType } from './Visitor'
+import DragCont from '../../components/DragContainer/DragCont'
+import * as S from "./visitor.style"
 
 export default function VisitorView({
     guestbookEntries,
@@ -10,12 +12,17 @@ export default function VisitorView({
     message,
     setMessage
 }: PropsType) {
-    
+    const dispatch = useDispatch();
+
     return (
+        <DragCont>
         <S.VisitorCont>
             <S.VisitorTit>
                 방명록
-                <S.CloseBtn>x</S.CloseBtn>
+                <S.CloseBtn
+                onClick={() => {
+                    dispatch({type: "toggleVisitor"})
+                }}>x</S.CloseBtn>
             </S.VisitorTit>
             <S.VisitorBody>
             <S.GuestbookEntries>
@@ -57,5 +64,6 @@ export default function VisitorView({
             </S.GuestBookForm>
             </S.VisitorBody>
         </S.VisitorCont>
+        </DragCont>
     )
 }

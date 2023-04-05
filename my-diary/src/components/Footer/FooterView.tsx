@@ -6,6 +6,7 @@ import shutdown from "../../img/ShutDown.png"
 import info from "../../img/Info.png"
 import diary from "../../img/Wordpad.png"
 import calculator from "../../img/Calculator.png"
+import printer from "../../img/Printer.png"
 import * as S from "./footer.style";
 import { PropsType } from './Footer';
 
@@ -15,6 +16,7 @@ export default function FooterView({
     exitStatus,
     infoStatus,
     calcStatus,
+    visitorStatus,
     user,
     isInfoModalOpen,
     setIsInfoMoalOpen,
@@ -45,9 +47,11 @@ export default function FooterView({
                 {exitStatus && user ?
                 <li>비밀일기 닫기</li>
                 : <></>}
-
                 {calcStatus && user ?
                 <li>계산기</li>
+                : <></>}
+                {visitorStatus && user ?
+                <li>방명록</li>
                 : <></>}
             </S.TabOl>
             <S.MenuList
@@ -81,6 +85,16 @@ export default function FooterView({
                 }}>
                     <img src={calculator} alt="" width="32px"/>
                     <u>계</u>산기
+                </li>
+                <li
+                    onClick={() => 
+                    {
+                        if (!visitorStatus) {
+                            dispatch({type: "toggleVisitor"})
+                        }
+                }}>
+                    <img src={printer} alt="" width="32px"/>
+                    <u>방</u>명록
                 </li>
                 <li onClick={() => {
                     if (!infoStatus) {dispatch({type: "toggleInfo"})}

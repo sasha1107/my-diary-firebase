@@ -8,6 +8,7 @@ export interface PropsType {
     handleUrl: (URL: string) => void;
     formStatus: boolean;
     calcStatus: boolean;
+    visitorStatus: boolean;
     audio: HTMLAudioElement;
 }
 
@@ -22,12 +23,16 @@ export default function IconArea() {
     // 계산기 탭 디스플레이 상태 
     const calcStatus = useSelector((state: StateType) => state.calc);
     
+    // 방명록 탭 디스플레이 상태
+    const visitorStatus = useSelector((state: StateType) => state.visitor);
+
     const audio = new Audio(binAudio);
 
     const props: PropsType = {
         handleUrl,
         formStatus,
         calcStatus,
+        visitorStatus,
         audio
     }
 
