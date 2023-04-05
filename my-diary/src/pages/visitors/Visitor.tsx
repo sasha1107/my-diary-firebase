@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { ref, push, onValue } from "firebase/database";
 import { database } from '../../firebase/firebaseConfig';
-import * as S from "./visitor.style"
+import VisitorView from './VisitorView';
 
 interface GuestbookEntry {
     nickname: string;
     message: string;
     timestamp: number;
+}
+export interface PropsType {
+    guestbookEntries: GuestbookEntry[];
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+    nickname: string;
+    setNickname: React.Dispatch<React.SetStateAction<string>>;
+    message: string;
+    setMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function Visitor() {
@@ -32,7 +40,7 @@ export default function Visitor() {
         });
 
         return () => {
-            // Firebase Realtime Database의 감시를 중단
+            // Firebase Realtime Database의 감시를 중단(clean-up)
         };
     }, []);
 
@@ -52,52 +60,16 @@ export default function Visitor() {
         setNickname("")
         setMessage("")
     }
+    const props = {
+        guestbookEntries,
+        handleSubmit,
+        nickname,
+        setNickname,
+        message,
+        setMessage
+    }
 
     return (
-        <S.VisitorCont>
-            <S.VisitorTit>
-                방명록
-                <S.CloseBtn>x</S.CloseBtn>
-            </S.VisitorTit>
-            <S.VisitorBody>
-            <S.GuestbookEntries>
-            {guestbookEntries.map((entry) => (
-                <S.MsgItem key={entry.timestamp}>
-                    <div>
-                        <S.Nickname>{entry.nickname}</S.Nickname>
-                        <S.Message>{entry.message}</S.Message>
-                    </div>
-                    <S.TimeStamp>
-                        {new Date(entry.timestamp).toLocaleString()}
-                    </S.TimeStamp>
-                </S.MsgItem>
-            ))}
-            </S.GuestbookEntries>
-            <S.GuestBookForm onSubmit={handleSubmit}>
-                <div>
-                    <div>
-                        <label htmlFor="name">닉네임:</label>
-                        <input
-                        type="text"
-                        name="name"
-                        value={nickname}
-                        required
-                        onChange={(e) => setNickname(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="message">내용:</label>
-                        <textarea
-                        name="message"
-                        value={message}
-                        required
-                        onChange={(e) => setMessage(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <S.SubmitBtn type="submit">Submit</S.SubmitBtn>
-            </S.GuestBookForm>
-            </S.VisitorBody>
-        </S.VisitorCont>
+        <VisitorView {...props}/>
     );
 }
