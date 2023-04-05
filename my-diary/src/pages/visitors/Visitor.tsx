@@ -9,7 +9,6 @@ interface GuestbookEntry {
     timestamp: number;
 }
 
-
 export default function Visitor() {
     const [nickname, setNickname] = useState<string>('');
     const [message, setMessage] = useState<string>('');
@@ -47,7 +46,6 @@ export default function Visitor() {
         };
 
         // firebase realtime database에 저장
-        console.log(newEntry)
         push(ref(database, 'guestbookEntries'), newEntry);
 
         // form 초기화
@@ -83,6 +81,7 @@ export default function Visitor() {
                         type="text"
                         name="name"
                         value={nickname}
+                        required
                         onChange={(e) => setNickname(e.target.value)}
                         />
                     </div>
@@ -91,6 +90,7 @@ export default function Visitor() {
                         <textarea
                         name="message"
                         value={message}
+                        required
                         onChange={(e) => setMessage(e.target.value)}
                         />
                     </div>
