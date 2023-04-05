@@ -30,7 +30,7 @@ const appAuth = getAuth();
 // timestamp 초기화
 const timeStamp = Timestamp;
 
-//  Initialize Realtime Database and get a reference to the service
+//  Firebase Realtime Database의 인스턴스를 생성
 const database = getDatabase(app);
 
 export { appFireStore, appAuth, timeStamp, database }
