@@ -20,8 +20,8 @@ export enum CellState {
 export type CellType = { value: CellValue; state: CellState; red?: boolean };
 
 export enum Face {
-    smile = '😁',
-    oh = '😮',
-    lost = '😵',
-    won = '😎',
+    smile = 'face/yay.png',
+    oh = 'face/oh.png',
+    lost = 'face/nay.png',
+    won = 'face/win.png',
 }

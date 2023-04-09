@@ -223,9 +223,10 @@ export default function Minesweeper() {
                 <S.Header>
                     <NumberDisplay value={bombCounter} />
                     <div className='Face' onClick={handleFaceClick}>
-                        <span role='img' aria-label='face'>
+                        {/* <span role='img' aria-label='face'>
                             {face}
-                        </span>
+                        </span> */}
+                        <img src={face} alt={face} width={"24px"}/>
                     </div>
                     <NumberDisplay value={time} />
                 </S.Header>
