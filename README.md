@@ -1,7 +1,9 @@
 # <span id="top">두근두근 비밀일기 📓</span>
 
 Window 95를 테마로 한 웹 다이어리 서비스
-![image](https://github.com/sasha1107/my-diary-firebase/assets/78977003/98a9f6c6-32da-478f-8d65-2b579778f18b)
+
+
+![image](https://github.com/sasha1107/my-diary-firebase/assets/78977003/4d2f51e5-d438-4c66-bc31-5640e09238da)
 
 
 [🔗 실행 링크](https://my-diary-4bd77.firebaseapp.com/login)
